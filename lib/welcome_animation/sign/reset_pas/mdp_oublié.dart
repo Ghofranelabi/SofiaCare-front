@@ -64,8 +64,8 @@ class _MdpOublieState extends State<MdpOublie> {
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateColor.resolveWith((states) =>Color.fromARGB(255, 101, 36, 207)),
+                    backgroundColor: MaterialStateColor.resolveWith(
+                        (states) => Color.fromARGB(255, 101, 36, 207)),
                     padding: MaterialStateProperty.resolveWith(
                       (states) => EdgeInsets.symmetric(vertical: 10),
                     ),

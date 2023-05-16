@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:sofiacare/patient/screens/home_screen.dart';
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/sofia.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
@@ -7,7 +8,9 @@ import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
 import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sofiacare/welcome_animation/sign/information_med.dart';
+// ignore: unused_import
+//import 'package:sofiacare/welcome_animation/sign/information_med.dart';
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/sign/sign.dart';
 
 //import 'package:flutter/foundation.dart' show kIsWeb;

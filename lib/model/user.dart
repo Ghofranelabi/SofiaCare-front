@@ -10,11 +10,11 @@ class User {
   //function to convert json data to user model
   factory User.formJson(Map<String, dynamic> json) {
     return User(
-      id: json['user']['id'],
-      name: json['user']['name'],
-      image: json['user']['image'],
-      email: json['user']['email'],
-      token: json['user']['token'],
+      id: json['data']['id'],
+      name: json['data']['name'],
+      //image: json['data']['image'],
+      email: json['data']['email'],
+      token: json['token'],
     );
   }
 }

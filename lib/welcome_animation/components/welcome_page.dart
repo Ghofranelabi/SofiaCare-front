@@ -1,4 +1,6 @@
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/sign/login.dart';
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/sign/register.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';

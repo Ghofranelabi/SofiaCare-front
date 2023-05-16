@@ -1,8 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
+// ignore: unused_import
 import 'package:sofiacare/constant.dart';
 // ignore: unused_import
 import 'package:sofiacare/patient/screens/home_screen.dart';
 import 'package:sofiacare/welcome_animation/sign/reset_pas/mdp_oubli%C3%A9.dart';
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/sign/register.dart';
 
 import 'package:flutter/material.dart';
@@ -13,7 +15,8 @@ import '../../model/user.dart';
 // ignore: unused_import
 import '../../services/user_service.dart';
 
-//import 'package:flutter/widgets.dart';
+// ignore: unnecessary_import
+import 'package:flutter/widgets.dart';
 class Login extends StatefulWidget {
   const Login({super.key});
 

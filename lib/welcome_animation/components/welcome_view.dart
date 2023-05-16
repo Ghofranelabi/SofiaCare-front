@@ -30,6 +30,7 @@ class WelcomeView extends StatelessWidget {
       ),
     );
 
+    // ignore: unused_local_variable
     final _welcomeFirstHalfAnimation =
         Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0))
             .animate(CurvedAnimation(

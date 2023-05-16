@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 //STINGS--------------
-const baseURL = 'http://10.0.2.2/api';
-const loginURL = baseURL + '/login';
-const registerURL = baseURL + '/register';
-const logoutnURL = baseURL + '/logout';
+const baseURL = 'http://10.0.2.2:8000/api';
+const loginURL = baseURL + '/auth/login';
+const registerURL = baseURL + '/auth/register';
+const logoutnURL = baseURL + '/auth/logout';
 const userURL = baseURL + '/user';
 const postsURL = baseURL + '/posts';
 const commentsURL = baseURL + '/comments';

@@ -1,6 +1,8 @@
 import 'package:sofiacare/patient/screens/home_screen.dart';
+// ignore: unused_import
 import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:sofiacare/services/user_service.dart';
+// ignore: unused_import
 import 'package:sofiacare/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,17 +37,20 @@ class _RegisterState extends State<Register> {
       _saveAndRedirectToHome(response.data as User);
     } else {
       setState(() {
+        if(mounted)
         loading = false;
       });
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
+
   }
 
   void _saveAndRedirectToHome(User user) async {
+    // ignore: unused_local_variable
     SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString('token', user.token ?? '');
-    await pref.setInt('userId', user.id ?? 0);
+   // await pref.setString('token', user.token ?? '');
+   // await pref.setInt('userId', user.id ?? 0);
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => HomeScreen()),
         (route) => false);

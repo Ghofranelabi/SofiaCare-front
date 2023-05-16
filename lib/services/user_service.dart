@@ -1,36 +1,37 @@
-//login
 import 'dart:convert';
-
-import 'package:sofiacare/constant.dart';
+import 'package:sofiacare/constant.dart'
+    show
+        loginURL,
+        registerURL,
+        serverError,
+        somethingWentWrong,
+        unauthorized,
+        userURL;
 import 'package:sofiacare/model/api_response.dart';
 import 'package:sofiacare/model/user.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+//login
 Future<ApiResponse> login(String email, String password) async {
   ApiResponse apiResponse = ApiResponse();
-  try {
-    final response = await http.post(Uri.parse(loginURL),
-        headers: {'Accept': 'application/json'},
-        body: {'email': email, 'password': password});
-    switch (response.statusCode) {
-      case 200:
-        apiResponse.data = User.formJson(jsonDecode(response.body));
-        break;
-      case 422:
-        final errors = jsonDecode(response.body)['errors'];
-        apiResponse.error = errors[errors.keys.elementAt(0)][0];
-        break;
-      case 403:
-        apiResponse.error = jsonDecode(response.body)['message'];
-        break;
-      default:
-        apiResponse.error = somethingWentWrong;
-        break;
-    }
-  } catch (e) {
-    apiResponse.error = serverError;
+
+  final response = await http.post(Uri.parse(loginURL),
+      headers: {'Accept': 'application/json'},
+      body: {'email': email, 'password': password});
+  if (response.statusCode == 200) {
+    print("success-> " + response.statusCode.toString());
+    print(response.body);
+    apiResponse.data = User.formJson(jsonDecode(response.body));
+  } else if (response.statusCode == 422) {
+    print("failure -> " + response.statusCode.toString());
+    final errors = jsonDecode(response.body)['errors'];
+    apiResponse.error = errors[errors.keys.elementAt(0)][0];
+  } else {
+    print("else -> " + response.statusCode.toString());
+    apiResponse.error = somethingWentWrong;
   }
+  print("status code -> " + response.statusCode.toString());
   return apiResponse;
 }
 
@@ -38,30 +39,29 @@ Future<ApiResponse> login(String email, String password) async {
 
 Future<ApiResponse> register(String name, String email, String password) async {
   ApiResponse apiResponse = ApiResponse();
-  try {
-    final response = await http.post(Uri.parse(registerURL), headers: {
-      'Accept': 'application/json'
-    }, body: {
-      'name': name,
-      'email': email,
-      'password': password,
-      'password_confirmtion': password
-    });
-    switch (response.statusCode) {
-      case 200:
-        apiResponse.data = User.formJson(jsonDecode(response.body));
-        break;
-      case 422:
-        final errors = jsonDecode(response.body)['errors'];
-        apiResponse.error = errors[errors.keys.elementAt(0)][0];
-        break;
-      default:
-        apiResponse.error = somethingWentWrong;
-        break;
-    }
-  } catch (e) {
-    apiResponse.error = serverError;
+
+  final response = await http.post(Uri.parse(registerURL), headers: {
+    'Accept': 'application/json'
+  }, body: {
+    'name': name,
+    'email': email,
+    'password': password,
+    'password_confirmtion': password
+  });
+
+  if (response.statusCode == 201) {
+    print("success-> " + response.statusCode.toString());
+    print(response.body);
+    apiResponse.data = User.formJson(jsonDecode(response.body));
+  } else if (response.statusCode == 422) {
+    print("failure -> " + response.statusCode.toString());
+    final errors = jsonDecode(response.body)['errors'];
+    apiResponse.error = errors[errors.keys.elementAt(0)][0];
+  } else {
+    print("else -> " + response.statusCode.toString());
+    apiResponse.error = somethingWentWrong;
   }
+  print("status code -> " + response.statusCode.toString());
   return apiResponse;
 }
 
