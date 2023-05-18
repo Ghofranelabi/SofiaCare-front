@@ -15,7 +15,7 @@ class _MdpOublieState extends State<MdpOublie> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 101, 36, 207),
+        backgroundColor: Color(0xFF013871),
         title: Text('Récupérer votre compte'),
         centerTitle: true,
       ),
@@ -65,7 +65,7 @@ class _MdpOublieState extends State<MdpOublie> {
                   ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color.fromARGB(255, 101, 36, 207)),
+                        (states) => Color(0xFF013871)),
                     padding: MaterialStateProperty.resolveWith(
                       (states) => EdgeInsets.symmetric(vertical: 10),
                     ),

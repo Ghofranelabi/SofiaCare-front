@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                     child: Text(
                       'Mot de passe oublié',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 101, 36, 207),
+                        color: Color(0xFF013871),
                       ),
                     )),
               ),
@@ -133,7 +133,7 @@ class _LoginState extends State<Login> {
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => Color.fromARGB(255, 101, 36, 207),
+                          (states) => Color(0xFF013871),
                         ),
                         padding: MaterialStateProperty.resolveWith(
                           (states) => EdgeInsets.symmetric(vertical: 10),
@@ -154,7 +154,7 @@ class _LoginState extends State<Login> {
                     _isCheked = newValue;
                   });
                 },
-                activeColor: Color.fromARGB(255, 81, 67, 235),
+                activeColor: Color(0xFF013871),
                 checkColor: Colors.white,
                 controlAffinity: ListTileControlAffinity.leading,
                 //tristate: true,

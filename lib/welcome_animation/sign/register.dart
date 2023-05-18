@@ -17,22 +17,19 @@ class Register extends StatefulWidget {
   @override
   State<Register> createState() => _RegisterState();
 }
-
+enum UserRole { patient, doctor }
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  // ignore: non_constant_identifier_names
-  TextEditingController EmailCntrl = TextEditingController(),
-      // ignore: non_constant_identifier_names
-      NomController = TextEditingController(),
-      // ignore: non_constant_identifier_names
-      PasswordController = TextEditingController(),
-      // ignore: non_constant_identifier_names
-      ConfirmPassword = TextEditingController();
-
+  TextEditingController nomController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   bool loading = false;
+    UserRole? userRole = UserRole.patient;
+
   void _register() async {
     ApiResponse response = await register(
-        NomController.text, EmailCntrl.text, PasswordController.text);
+        nomController.text, emailController.text, passwordController.text);
     if (response.error == null) {
       _saveAndRedirectToHome(response.data as User);
     } else {
@@ -66,7 +63,7 @@ class _RegisterState extends State<Register> {
             children: [
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: NomController,
+                controller: nomController,
                 validator: (val) => val!.isEmpty ? 'Invalid username' : null,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -81,7 +78,7 @@ class _RegisterState extends State<Register> {
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: EmailCntrl,
+                controller: emailController,
                 validator: (val) =>
                     val!.isEmpty ? 'Invalid email adress' : null,
                 decoration: InputDecoration(
@@ -97,7 +94,7 @@ class _RegisterState extends State<Register> {
               ),
               TextFormField(
                 obscureText: true,
-                controller: PasswordController,
+                controller: passwordController,
                 validator: (val) => val!.isEmpty ? 'Minimum 6 caractére' : null,
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock_outline),
@@ -107,23 +104,81 @@ class _RegisterState extends State<Register> {
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(width: 1, color: Colors.black))),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                obscureText: true,
-                controller: ConfirmPassword,
-                validator: (val) => val != PasswordController.text
-                    ? 'Confirm password does not match'
-                    : null,
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock_outline),
-                    labelText: 'Confirm Password',
-                    contentPadding: EdgeInsets.all(10),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(width: 1, color: Colors.black))),
-              ),
+              
+SizedBox(
+  height: 10,
+),
+TextFormField(
+  obscureText: true,
+  controller: confirmPasswordController,
+  validator: (val) => val != passwordController.text
+      ? 'Confirm password does not match'
+      : null,
+  decoration: InputDecoration(
+    prefixIcon: Icon(Icons.lock_outline),
+    labelText: 'Confirm Password',
+    contentPadding: EdgeInsets.all(10),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(width: 1, color: Colors.black),
+    ),
+  ),
+),
+ Column(
+  children: [
+    SizedBox(height: 15),
+    Row(
+      children: [
+        Expanded(
+          child: ListTile(
+            title: const Text('Patient'),
+            leading: Radio<UserRole>(
+              value: UserRole.patient,
+              groupValue: userRole,
+              onChanged: (UserRole? value) {
+                setState(() {
+                  userRole = value;
+                  if (value == UserRole.patient) {
+              Navigator.pushReplacementNamed(context, '/home_screen');
+                }});
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListTile(
+            title: const Text('Docteur'),
+            leading: Radio<UserRole>(
+              value: UserRole.doctor,
+              groupValue: userRole,
+              onChanged: (UserRole? value) {
+                setState(() {
+                  userRole = value;
+                });
+              },
+            ),
+          ),
+        ),
+      ],
+    ),
+    SizedBox(height: 15),
+    loading
+        ? Center(
+            child: CircularProgressIndicator(),
+          )
+        : TextButton(
+            onPressed: () {
+              if (formkey.currentState!.validate()) {
+                setState(() {
+                  loading = true;
+                  _register();
+                });
+              }
+            },
+            child: Text(''), // Add the child widget here
+          ),
+  ],
+),
               SizedBox(
                 height: 15,
               ),
@@ -146,7 +201,7 @@ class _RegisterState extends State<Register> {
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Color.fromARGB(255, 101, 36, 207)),
+                            (states) =>  Color(0xFF013871)),
                         padding: MaterialStateProperty.resolveWith(
                           (states) => EdgeInsets.symmetric(vertical: 10),
                         ),

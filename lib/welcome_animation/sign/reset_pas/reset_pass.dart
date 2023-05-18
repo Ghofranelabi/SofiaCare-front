@@ -69,7 +69,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 ),
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateColor.resolveWith((states) => Color.fromARGB(255, 107, 33, 243)),
+                      MaterialStateColor.resolveWith((states) => Color(0xFF013871)),
                   padding: MaterialStateProperty.resolveWith(
                     (states) => EdgeInsets.symmetric(vertical: 10),
                   ),

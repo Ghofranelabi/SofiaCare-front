@@ -16,7 +16,7 @@ class _VerificationState extends State<Verification> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 101, 36, 207),
+        backgroundColor: Color(0xFF013871),
         title: Text('Vérification Code'),
         centerTitle: true,
       ),
@@ -134,7 +134,7 @@ class _VerificationState extends State<Verification> {
                 ),
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateColor.resolveWith((states) => Color.fromARGB(255, 101, 36, 207)),
+                      MaterialStateColor.resolveWith((states) => Color(0xFF013871)),
                   padding: MaterialStateProperty.resolveWith(
                     (states) => EdgeInsets.symmetric(vertical: 10),
                   ),
@@ -152,7 +152,7 @@ class _VerificationState extends State<Verification> {
                   },
                   child: Text(
                     'Renvoyer le code',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: const Color.fromARGB(255, 0, 111, 202)),
                   )),
             ),
           ],

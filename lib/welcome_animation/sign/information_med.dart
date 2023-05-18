@@ -42,7 +42,7 @@ class _InformationMedState extends State<InformationMed> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                        width: 1, color: Color.fromARGB(255, 18, 88, 146)))),
+                        width: 1, color: Color(0xFF013871)))),
           ),
           SizedBox(
             height: 15,

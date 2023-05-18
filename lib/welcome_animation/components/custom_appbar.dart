@@ -36,7 +36,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color.fromARGB(255, 101, 36, 207),
+                color: Color(0xFF013871),
               ),
               child: IconButton(
                 onPressed: () {
