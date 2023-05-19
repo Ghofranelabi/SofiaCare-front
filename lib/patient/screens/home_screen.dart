@@ -8,6 +8,8 @@ import 'colors.dart';
  // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
+  String nomUtilisateur = "John Doe"; // Remplacez "John Doe" par le nom réel de l'utilisateur
+
   List catNames = [
     "Dentiste",
     "Cardiologue",
@@ -95,14 +97,15 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: 15),
-                          Text(
-                            "cher patient ",
-                            style: TextStyle(
-                              color: wColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+Text(
+  // ignore: unnecessary_brace_in_string_interps
+  "Cher ${nomUtilisateur}",
+  style: TextStyle(
+    color: wColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  ),
+),
                           SizedBox(height: 10),
                           Text(
                             "Votre santé est notre préoccupation !",

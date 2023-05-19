@@ -1,293 +1,134 @@
 import 'package:flutter/material.dart';
-// ignore: unnecessary_import
-import 'package:flutter/cupertino.dart';
-// ignore: duplicate_import
-import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:sofiacare/patient/screens/rendez_vous/date_time_picker.dart';
-import 'colors.dart';
+import 'package:flutter/services.dart';
+import 'package:sofiacare/patient/screens/presentation.dart';
+import 'package:sofiacare/patient/screens/quest_ans.dart';
 
-class AppointScreen extends StatelessWidget {
-  const AppointScreen({super.key});
+import '../../tools/colors_palette.dart';
+import '../../welcome_animation/sign/button/button_sign.dart';
+
+class Appoint extends StatefulWidget {
+  const Appoint({Key? key}) : super(key: key);
+
+  @override
+  State<Appoint> createState() => _AppointScreen();
+}
+
+class _AppointScreen extends State<Appoint> {
+  final PageController _controller = PageController(
+    initialPage: 0,
+  );
+  int currentPage = 0;
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFFD9E4EE),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2.1,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/doctor1.jpg"),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+      child: GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (currentFocus.hasPrimaryFocus == false &&
+              currentFocus.focusedChild != null) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          }
+        },
+        child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+          body: Column(
+            children: [
+              SizedBox(
+                height: 350,
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/images/doctor1.jpg',
+                  fit: BoxFit.fill,
                 ),
               ),
-              child: Container(
+              SizedBox(
+                height: 20,
+              ),
+              Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      pColor.withOpacity(0.9),
-                      pColor.withOpacity(0),
-                      pColor.withOpacity(0),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
                   ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 30,
-                        left: 10,
-                        right: 10,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.all(8),
-                              height: 45,
-                              width: 45,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFF2F8FF),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: sdColor,
-                                    blurRadius: 2,
-                                  ),
-                                ],
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  color: pColor,
-                                  size: 28,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.all(8),
-                            height: 45,
-                            width: 45,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF2F8FF),
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: sdColor,
-                                  blurRadius: 4,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                            child: const Center(
-                              child: Icon(
-                                Icons.favorite_outline,
-                                color: pColor,
-                                size: 28,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 80,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                "Patients",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: wColor,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "1.8K",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: wColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                "Experience",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: wColor,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "10 Ans",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: wColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                "Rating",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: wColor,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "4.9",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: wColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ColorsPalette.primaryColor.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3), // changes position of shadow
                     ),
                   ],
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
+              Row(
                 children: [
-                  const Text(
-                    "Dr Labidi",
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w500,
-                      color: pColor,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        MdiIcons.heartPlus,
-                        color: Colors.red,
-                        size: 28,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "cardiologue",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: bColor.withOpacity(0.6),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black.withOpacity(0.6),
-                    ),
-                  ),
-                  
-                                SizedBox(height: 20),
-Material(
-  color: pColor,
-  borderRadius: BorderRadius.circular(10),
-  child: ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => DateTimePicker(),
-        ),
-      );
-    },
-    style: ElevatedButton.styleFrom(
-      // ignore: deprecated_member_use
-      foregroundColor: wColor, primary: pColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      minimumSize: Size(MediaQuery.of(context).size.width, 60),
-    ),
-    child: Text(
-      "Prenez un Rendez-vous",
-      style: TextStyle(
-        color: wColor,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-),
-                                
-                              ],
-                            ),
-                          ),],),),
+                  /** bouton connexion and underline **/
+                  Expanded(
+                    child: ButtonSign(
+                      text: "Présentation",
+                      isSelected: currentPage == 0,
+                      onTap: () {
+                        setState(() {
+                          _controller.previousPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
                           );
-                          
-                        
-                      }
-                  
-              
-                
-       
-    
-
+                        });
+                      },
+                    ),
+                  ),
+                  Container(
+                    width: 2,
+                    height: 25,
+                    color: Colors.grey.shade300,
+                  ),
+                  Expanded(
+                    child: ButtonSign(
+                      text: "Questions/réponses",
+                      isSelected: currentPage == 1,
+                      onTap: () {
+                        setState(() {
+                          _controller.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: PageView(
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
+                  controller: _controller,
+                  children: [
+                    Presentation(),
+                    QuestionAnswerScreen()
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
-  
-
-                        
+}

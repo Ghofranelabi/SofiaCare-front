@@ -1,4 +1,6 @@
 // ignore: unused_import
+import 'package:sofiacare/patient/screens/appoint_screen.dart';
+// ignore: unused_import
 import 'package:sofiacare/patient/screens/home_screen.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/sofia.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, home: IntroductionAnimationScreen());
+        debugShowCheckedModeBanner: false, home: Appoint());
   }
 }
 

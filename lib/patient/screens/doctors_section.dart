@@ -47,7 +47,7 @@ class DocTorsSection extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {Navigator.push(context, MaterialPageRoute(
-                            builder: (context)=>AppointScreen(),
+                            builder: (context)=>Appoint(),
                             ),
                             );
                             },

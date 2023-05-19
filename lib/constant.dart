@@ -14,6 +14,7 @@ const serverError = 'Server error';
 const unauthorized = 'unauthorized';
 const somethingWentWrong = 'Something Went Wrong, try again';
 
+
 //---Input decoration
 InputDecoration kInputDecoration(String label) {
   return InputDecoration(
@@ -35,8 +36,8 @@ TextButton kTextButton(
       style: TextStyle(color: Colors.white),
     ),
     style: ButtonStyle(
-      backgroundColor: MaterialStateColor.resolveWith(
-          (states) => Color.fromARGB(255, 101, 36, 207)),
+      backgroundColor:
+          MaterialStateColor.resolveWith((states) => Color(0xFF013871)),
       padding: MaterialStateProperty.resolveWith(
         (states) => EdgeInsets.symmetric(vertical: 10),
       ),
@@ -53,9 +54,8 @@ Row kLoginRegisterHint(String text, String label, Function onTap) {
       GestureDetector(
         child: Text(
           label,
-          style: TextStyle(
-              color: Color.fromARGB(255, 101, 36, 207),
-              fontWeight: FontWeight.bold),
+          style:
+              TextStyle(color: Color(0xFF013871), fontWeight: FontWeight.bold),
         ),
         onTap: () => onTap(),
       ),
