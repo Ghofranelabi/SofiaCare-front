@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sofiacare/patient/screens/presentation.dart';
-import 'package:sofiacare/patient/screens/quest_ans.dart';
+import 'package:sofiacare/patient/profile/presentation.dart';
+import 'package:sofiacare/patient/profile/quest_ans.dart';
 
 import '../../tools/colors_palette.dart';
 import '../../welcome_animation/sign/button/button_sign.dart';
@@ -27,36 +27,49 @@ class _AppointScreen extends State<Appoint> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: GestureDetector(
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (currentFocus.hasPrimaryFocus == false &&
-              currentFocus.focusedChild != null) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          }
-        },
-        child: Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
+        child: GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (currentFocus.hasPrimaryFocus == false &&
+            currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
+      },
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(1), // Adjust the height as needed
+          child: AppBar(
             systemOverlayStyle: const SystemUiOverlayStyle(
               statusBarIconBrightness: Brightness.dark,
             ),
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
+        ),
           body: Column(
-            children: [
-              SizedBox(
-                height: 350,
-                width: double.infinity,
-                child: Image.asset(
-                  'assets/images/doctor1.jpg',
-                  fit: BoxFit.fill,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
+  children: [
+   Container(
+  height: 100,
+  width: 100,
+  decoration: BoxDecoration(
+    border: Border.all(
+      color: Color(0xFF013871),
+      width: 4,
+    ),
+    borderRadius: BorderRadius.circular(10),
+  ),
+  child: Transform.scale(
+    scale: 0.8,
+    child: Image.asset(
+      'assets/images/doctor1.jpg',
+      fit: BoxFit.fill,
+    ),
+  ),
+),
+SizedBox(
+  height: 20,
+),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -75,7 +88,6 @@ class _AppointScreen extends State<Appoint> {
               ),
               Row(
                 children: [
-                  /** bouton connexion and underline **/
                   Expanded(
                     child: ButtonSign(
                       text: "Présentation",
@@ -121,8 +133,7 @@ class _AppointScreen extends State<Appoint> {
                   controller: _controller,
                   children: [
                     Presentation(),
-                    QuestionAnswerScreen()
-                  ],
+                    QuestionAnswerScreen()],
                 ),
               ),
             ],

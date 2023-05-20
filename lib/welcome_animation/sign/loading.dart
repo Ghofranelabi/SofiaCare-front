@@ -1,5 +1,5 @@
 import 'package:sofiacare/constant.dart';
-import 'package:sofiacare/patient/screens/home_screen.dart';
+import 'package:sofiacare/patient/home/home_screen.dart';
 import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:sofiacare/model/api_response.dart';
 import 'package:flutter/material.dart';

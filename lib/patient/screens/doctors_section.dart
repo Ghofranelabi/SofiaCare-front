@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:sofiacare/patient/screens/colors.dart';
 // ignore: unused_import
-import 'appoint_screen.dart';
+import '../profile/appoint_screen.dart';
 
 // ignore: unused_import, duplicate_import
-import 'appoint_screen.dart';
+import '../profile/appoint_screen.dart';
 
 class DocTorsSection extends StatelessWidget {
   get index => null;

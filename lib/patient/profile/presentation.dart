@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
 // ignore: unused_import
-import 'package:sofiacare/patient/screens/rendez_vous/date_time_picker.dart';
+import 'package:sofiacare/patient/rendez_vous/date_time_picker.dart';
+import 'package:sofiacare/patient/screens/widgets/buttons/button_login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -20,6 +21,23 @@ class _PresentationState extends State<Presentation> {
     return Scaffold(
       body: ListView(
         children: [
+          SizedBox(
+            height: 50,
+            child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 10),
+              child: Center(
+              child: Text(
+                "Dr.Labidi",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF013871),
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+            ),
+          ),
           SizedBox(
             height: 25,
             child: Padding(
@@ -153,11 +171,9 @@ class _PresentationState extends State<Presentation> {
     padding: EdgeInsets.only(left: 10),
     // ignore: duplicate_ignore
     child: GestureDetector(
-      // ignore: duplicate_ignore, duplicate_ignore, duplicate_ignore
       onTap: () async {
         final phoneNumber = '+21625489325';
         final url = 'tel:$phoneNumber';
-        // ignore: deprecated_member_use
         if (await canLaunch(url)) {
           await launch(url);
         } else {
@@ -183,31 +199,19 @@ class _PresentationState extends State<Presentation> {
 ),
 Spacer(),
 
-SizedBox(height: 30),
-Material(
-  color: pColor,
-  borderRadius: BorderRadius.circular(10),
-  child: ElevatedButton(
-    onPressed: () {
-      // Button onPressed logic
-    },
-    style: ElevatedButton.styleFrom(
-      foregroundColor: wColor,
-      backgroundColor: pColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+SizedBox(height: 100),
+            Padding(
+                  padding: const EdgeInsets.symmetric(
+        horizontal: 20.0,
       ),
-      minimumSize: Size(20, 10), // Adjust the width and height values to make the button smaller
-    ),
-    child: Text(
-      "Prenez Rendez-Vous",
-      style: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-),
+              child: ButtonLogin(onTap: (){  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DateTimePicker(),
+                          ),
+                        );}, text: "Prenez un Rendez-vous"),
+            ),
+
 
         ],
       ),

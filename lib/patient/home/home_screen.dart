@@ -3,12 +3,15 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sofiacare/patient/profile/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
-import 'colors.dart';
- // ignore: must_be_immutable
+import '../screens/colors.dart';
+
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
-  String nomUtilisateur = "John Doe"; // Remplacez "John Doe" par le nom réel de l'utilisateur
+  String nomUtilisateur =
+      "John Doe"; // Remplacez "John Doe" par le nom réel de l'utilisateur
 
   List catNames = [
     "Dentiste",
@@ -49,29 +52,28 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD9E4EE),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 3.5,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    pColor.withOpacity(0.8),
-                    pColor,
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+        backgroundColor: Color(0xFFD9E4EE),
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 3.5,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      pColor.withOpacity(0.8),
+                      pColor,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
                 ),
               ),
-            ),
-              
               Padding(
                 padding: EdgeInsets.only(top: 30),
                 child: Column(
@@ -97,15 +99,15 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: 15),
-Text(
-  // ignore: unnecessary_brace_in_string_interps
-  "Cher ${nomUtilisateur}",
-  style: TextStyle(
-    color: wColor,
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
-  ),
-),
+                          Text(
+                            // ignore: unnecessary_brace_in_string_interps
+                            "Cher ${nomUtilisateur}",
+                            style: TextStyle(
+                              color: wColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                           SizedBox(height: 10),
                           Text(
                             "Votre santé est notre préoccupation !",
@@ -233,18 +235,23 @@ Text(
             ],
           ),
         ),
-      bottomNavigationBar: GNav(
-        selectedIndex: 0, // Set the initial selected index as needed
-        tabs: [
-          GButton(icon: Icons.search, text: 'Recherche'),
-          GButton(icon: Icons.home, text: 'Acuieil'),
-          GButton(icon: Icons.calendar_month, text: '  Rendez-vous'),
-          GButton(icon: Icons.person, text: 'Profil'),
-        ],
-        onTabChange: (int index) {
-          // Handle tab change event here
-        },
-      ),
-        );
+        bottomNavigationBar: GNav(
+          selectedIndex: 0, // Set the initial selected index as needed
+          tabs: [
+            GButton(icon: Icons.search, text: 'Recherche'),
+            GButton(icon: Icons.home, text: 'Acuieil'),
+            GButton(icon: Icons.calendar_month, text: '  Rendez-vous'),
+            GButton(icon: Icons.person, text: 'Profil'),
+          ],
+          onTabChange: (int index) {
+            // Handle tab change event here
+            if (index == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditProfile()),
+              );
+            }
+          },
+        ));
   }
 }
