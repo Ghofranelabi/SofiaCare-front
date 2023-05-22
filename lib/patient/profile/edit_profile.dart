@@ -136,7 +136,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF013871),
+                      backgroundColor: const Color(0xFF013871),
                       padding: const EdgeInsets.symmetric(horizontal: 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
@@ -153,6 +153,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   Widget buildTextField(
+      // ignore: non_constant_identifier_names
       String labelText, String Placeholder, bool isPasswordTextField) {
     return Padding(
       padding: const EdgeInsets.only(

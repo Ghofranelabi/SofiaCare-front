@@ -1,7 +1,7 @@
 // ignore: unused_import
+import 'package:sofiacare/doctor/doc_home.dart';
+// ignore: unused_import
 import 'package:sofiacare/patient/home/home_screen.dart';
-import 'package:sofiacare/patient/profile/edit_profile.dart';
-import 'package:sofiacare/patient/rendez_vous/booking.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/sofia.dart';
 // ignore: unused_import
@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, home:EditProfile());
+        debugShowCheckedModeBanner: false,
+         home: DoctorHome());
   }
 }
 

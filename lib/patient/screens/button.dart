@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/screens/utils/config.dart';
 
 
 class Button extends StatelessWidget {

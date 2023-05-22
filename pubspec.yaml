@@ -42,11 +42,12 @@ dependencies:
   rating_dialog: ^2.0.4
   flutter_svg: ^2.0.5
   url_launcher: ^6.0.0
+  dio: ^4.0.6
+  provider: ^6.0.4
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  provider: ^6.0.4
   
 
 # For information on the generic Dart part of this file, see the
@@ -62,6 +63,7 @@ flutter:
     # To add assets to your application, add an assets section, like this:
     assets:
         - assets/images/
+        - assets/
         - assets/introduction_animation/
 
     # An image asset can refer to one or more resolution-specific "variants", see
