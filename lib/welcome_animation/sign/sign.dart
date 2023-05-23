@@ -47,15 +47,17 @@ class _SignState extends State<Sign> {
           ),
         
           body: Column(
-            children: [
-              SizedBox(
-                height: 250,
-                width: double.infinity,
-                child: Image.asset(
-                  'assets/images/Asset.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+  children: [
+    SizedBox(
+      height: 200, // Adjust the height as per your requirement
+      width: double.infinity,
+      child: Container(
+        child: Image.asset(
+          'assets/images/Asset.png',
+          fit: BoxFit.contain, // Adjust the fit as per your requirement
+        ),
+      ),
+    ),
               SizedBox(
                 height: 20,
               ),

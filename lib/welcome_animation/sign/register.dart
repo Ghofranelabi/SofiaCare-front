@@ -138,9 +138,7 @@ TextFormField(
               onChanged: (UserRole? value) {
                 setState(() {
                   userRole = value;
-                  if (value == UserRole.patient) {
-              Navigator.pushReplacementNamed(context, '/home_screen');
-                }});
+                });
               },
             ),
           ),
@@ -179,6 +177,7 @@ TextFormField(
           ),
   ],
 ),
+
               SizedBox(
                 height: 15,
               ),

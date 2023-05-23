@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:http/http.dart' as http;
 import 'package:sofiacare/patient/screens/colors.dart';
-// ignore: unused_import
 import '../profile/appoint_screen.dart';
 
-// ignore: unused_import, duplicate_import
-import '../profile/appoint_screen.dart';
+class DocTorsSection extends StatefulWidget {
+  @override
+  _DocTorsSectionState createState() => _DocTorsSectionState();
+}
 
-class DocTorsSection extends StatelessWidget {
-  get index => null;
+class _DocTorsSectionState extends State<DocTorsSection> {
+  List<bool> isFavoriteList = List.generate(4, (_) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +45,14 @@ class DocTorsSection extends StatelessWidget {
                     Stack(
                       children: [
                         InkWell(
-                          onTap: () {Navigator.push(context, MaterialPageRoute(
-                            builder: (context)=>Appoint(),
-                            ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Appoint(),
+                              ),
                             );
-                            },
+                          },
                           child: ClipRRect(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(15),
@@ -81,49 +83,67 @@ class DocTorsSection extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: Center(
-                              child: Icon(
-                                Icons.favorite_outline,
-                                color: pColor,
-                                size: 28,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isFavoriteList[index] = !isFavoriteList[index];
+                                });
+                              },
+                              child: Center(
+                                child: Icon(
+                                  isFavoriteList[index]
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color:
+                                      isFavoriteList[index] ? Colors.amber : pColor,
+                                  size: 28,
+                                ),
                               ),
                             ),
                           ),
                         ),
-              ],
+                      ],
                     ),
-                    SizedBox(height: 8,),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 5,),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Dr labidi",
-                      style:TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                        color:pColor,
+                    SizedBox(height: 8),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dr labidi",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w500,
+                              color: pColor,
+                            ),
+                          ),
+                          Text(
+                            "chirurgien",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: bColor.withOpacity(0.6),
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "4.9",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: bColor.withOpacity(0.6),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      ),
-                      Text("chirurgien",
-                      style:TextStyle(
-                        fontSize: 18,
-                        color: bColor.withOpacity(0.6,),
-                      ),
-                      ),
-                      SizedBox(height: 8,),
-                      Row(children: [
-                        Icon(Icons.star,
-                        color: Colors.amber,
-                        ),
-                        SizedBox(width: 5,),
-                        Text("4.9",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: bColor.withOpacity(0.6,),
-                        ),
-                        ),
-                      ],),
-                    ],),
                     ),
                   ],
                 ),

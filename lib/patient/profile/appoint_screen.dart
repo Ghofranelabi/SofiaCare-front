@@ -18,6 +18,7 @@ class _AppointScreen extends State<Appoint> {
     initialPage: 0,
   );
   int currentPage = 0;
+
   @override
   void dispose() {
     _controller.dispose();
@@ -27,49 +28,52 @@ class _AppointScreen extends State<Appoint> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        child: GestureDetector(
-      onTap: () {
-        FocusScopeNode currentFocus = FocusScope.of(context);
-        if (currentFocus.hasPrimaryFocus == false &&
-            currentFocus.focusedChild != null) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        }
-      },
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(1), // Adjust the height as needed
-          child: AppBar(
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarIconBrightness: Brightness.dark,
+      child: GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (currentFocus.hasPrimaryFocus == false &&
+              currentFocus.focusedChild != null) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          }
+        },
+        child: Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(1), // Adjust the height as needed
+            child: AppBar(
+              systemOverlayStyle: const SystemUiOverlayStyle(
+                statusBarIconBrightness: Brightness.dark,
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
             ),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
           ),
-        ),
           body: Column(
-  children: [
-   Container(
-  height: 100,
-  width: 100,
-  decoration: BoxDecoration(
-    border: Border.all(
-      color: Color(0xFF013871),
-      width: 4,
-    ),
-    borderRadius: BorderRadius.circular(10),
-  ),
-  child: Transform.scale(
-    scale: 0.8,
-    child: Image.asset(
-      'assets/images/doctor1.jpg',
-      fit: BoxFit.fill,
-    ),
-  ),
-),
-SizedBox(
-  height: 20,
-),
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 40), // Adjust the top padding value as needed
+                child: Container(
+                  height: 120,
+                  width: 120,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xFF013871),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Transform.scale(
+                    scale: 0.8,
+                    child: Image.asset(
+                      'assets/images/doctor1.jpg',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -133,7 +137,8 @@ SizedBox(
                   controller: _controller,
                   children: [
                     Presentation(),
-                    QuestionAnswerScreen()],
+                    QuestionAnswerScreen(),
+                  ],
                 ),
               ),
             ],

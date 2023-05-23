@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/profile/appoint_screen.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
 
+// ignore: unused_import
 import '../profile/presentation.dart';
 
 class Posts extends StatefulWidget {
