@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/home/app_bar.dart';
-import 'package:sofiacare/doctor/home/new_post.dart';
-import 'package:sofiacare/doctor/home/posts.dart';
+import 'package:sofiacare/patient/home/app_bar.dart';
+import 'package:sofiacare/patient/home/posts.dart';
 
-class DoctorHome extends StatelessWidget {
-  const DoctorHome({super.key});
+class PatHome extends StatelessWidget {
+  const PatHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,6 @@ class DoctorHome extends StatelessWidget {
           child: Column(
             children: [
               MyAppBar(),
-              NewPost(),
               Posts(),
               ],
             ),

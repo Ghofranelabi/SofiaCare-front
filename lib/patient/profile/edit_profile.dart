@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/home/home_screen.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
+import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);

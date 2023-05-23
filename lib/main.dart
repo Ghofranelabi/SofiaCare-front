@@ -1,8 +1,4 @@
 // ignore: unused_import
-import 'package:sofiacare/doctor/doc_home.dart';
-// ignore: unused_import
-import 'package:sofiacare/patient/home/home_screen.dart';
-// ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/sofia.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
@@ -10,6 +6,7 @@ import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
 import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
 // ignore: unused_import
 //import 'package:sofiacare/welcome_animation/sign/information_med.dart';
 // ignore: unused_import
@@ -32,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-         home: DoctorHome());
+         home: HomeScreen());
   }
 }
 

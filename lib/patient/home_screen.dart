@@ -3,7 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sofiacare/patient/profile/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
-import '../screens/colors.dart';
+import 'screens/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
