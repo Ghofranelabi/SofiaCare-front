@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class NotificationScreen extends StatelessWidget {
   List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
     "doctor3.jpg",
     "doctor4.jpg",
+  ];
+
+  List<String> favoriteDoctors = [
+    "Dr. Labidi",
+    "Dr. Smith",
+    "Dr. Johnson",
   ];
 
   @override
@@ -32,6 +39,25 @@ class NotificationScreen extends StatelessWidget {
             patientName: 'Alice Johnson',
             result: AppointmentResult.accepted,
             imgUrl: imgs[2],
+          ),
+          SizedBox(height: 16.0),
+          Text(
+            'Mes médecins préférés:',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 8.0),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: favoriteDoctors.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Icon(Icons.favorite, color: Colors.amber),
+                title: Text(favoriteDoctors[index]),
+              );
+            },
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sofiacare/patient/profile/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
+import 'package:sofiacare/patient/screens/notification_screen.dart';
 import 'screens/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -283,22 +284,27 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: GNav(
-        selectedIndex: 0, // Set the initial selected index as needed
+        selectedIndex: 0,
         tabs: [
           GButton(icon: Icons.search, text: 'Recherche'),
           GButton(icon: Icons.home, text: 'Acuieil'),
-          GButton(icon: Icons.calendar_month, text: '  Rendez-vous'),
-          GButton(icon: Icons.person, text: 'Profil'),
+          GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
+          GButton(icon: Icons.notifications_outlined, text: 'Notifications'),
+          GButton(icon: Icons.settings, text: 'Paramétre'),
         ],
-        onTabChange: (int index) {
-          // Handle tab change event here
-          if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => EditProfile()),
-            );
-          }
-        },
+       onTabChange: (int index) {
+  if (index == 2) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationScreen()),
+    );
+  } else if (index == 3) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditProfile()),
+    );
+  }
+},
       ),
     );
   }
