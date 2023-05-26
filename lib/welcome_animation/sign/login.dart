@@ -40,7 +40,7 @@ class _LoginState extends State<Login> {
     await pref.setString('token', user.token ?? '');
     await pref.setInt('userId', user.id ?? 0);
     Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => SearchScreen()),
       (route) => false,
     );
   }

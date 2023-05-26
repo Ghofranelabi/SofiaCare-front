@@ -23,9 +23,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(
-            height: 5,
-          ),
+          SizedBox(height: 0.5), // Add space at the top
           GestureDetector(
             onTap: () {
               Navigator.push(
@@ -33,20 +31,15 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                 MaterialPageRoute(builder: (context) => Booking()),
               );
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 166, 208, 243),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.calendar_month,
-                  ),
-                ),
-              ],
+            child: Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 166, 208, 243),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.calendar_month,
+              ),
             ),
           ),
           Expanded(

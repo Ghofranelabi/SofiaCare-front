@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sofiacare/patient/profile/presentation.dart';
 import 'package:sofiacare/patient/profile/quest_ans.dart';
+import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
 
 import '../../tools/colors_palette.dart';
 import '../../welcome_animation/sign/button/button_sign.dart';
@@ -28,6 +29,7 @@ class _AppointScreen extends State<Appoint> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      
       child: GestureDetector(
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
@@ -37,21 +39,26 @@ class _AppointScreen extends State<Appoint> {
           }
         },
         child: Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(1), // Adjust the height as needed
-            child: AppBar(
-              systemOverlayStyle: const SystemUiOverlayStyle(
-                statusBarIconBrightness: Brightness.dark,
-              ),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
             ),
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0,
           ),
           body: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 40), // Adjust the top padding value as needed
+                padding: EdgeInsets.only(top: 1), // Adjust the top padding value as needed
                 child: Container(
                   height: 120,
                   width: 120,

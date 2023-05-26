@@ -7,8 +7,6 @@ import 'package:sofiacare/patient/profile/appoint_screen.dart';
 // ignore: unused_import
 import 'package:sofiacare/patient/rendez_vous/booking.dart';
 // ignore: unused_import
-import 'package:sofiacare/patient/screens/notification_screen.dart';
-// ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
@@ -38,7 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-         home:DoctorHome());
+         home:SearchScreen());
   }
 }
 

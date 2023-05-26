@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sofiacare/patient/home/notification_appoint.dart';
+import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/profile/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
-import 'package:sofiacare/patient/screens/notification_screen.dart';
-import 'screens/colors.dart';
+import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
+import '../screens/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
@@ -284,28 +286,38 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: GNav(
-        selectedIndex: 0,
-        tabs: [
-          GButton(icon: Icons.search, text: 'Recherche'),
-          GButton(icon: Icons.home, text: 'Acuieil'),
-          GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
-          GButton(icon: Icons.notifications_outlined, text: 'Notifications'),
-          GButton(icon: Icons.settings, text: 'Paramétre'),
-        ],
-       onTabChange: (int index) {
-  if (index == 2) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => NotificationScreen()),
-    );
-  } else if (index == 3) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => EditProfile()),
-    );
-  }
-},
-      ),
+  selectedIndex: 0,
+  tabs: [
+    GButton(icon: Icons.search, text: 'Recherche'),
+    GButton(icon: Icons.home, text: 'Acuieil'),
+    GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
+    GButton(icon: Icons.person, text: 'Profil'),
+  ],
+  onTabChange: (int index) {
+    // Handle tab change event here
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PatHome()),
+      );
+    } else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => EditProfile()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => NotificationAppoint()),
+      );
+    } else if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SearchScreen()),
+      );
+    }
+  },
+),
     );
   }
 }

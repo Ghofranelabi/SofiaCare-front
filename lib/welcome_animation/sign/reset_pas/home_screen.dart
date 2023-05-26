@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/profile/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
 
 import '../../../patient/screens/colors.dart';
-class HomeScreen extends StatefulWidget {
+class SearchScreen extends StatefulWidget {
   static String routeName = "/home";
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SearchScreenState extends State<SearchScreen> {
   String nomUtilisateur = "John Doe";
   List<String> catNames = [
     "Dentiste",
@@ -119,11 +120,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundImage:
                                   AssetImage("assets/images/doctor1.jpg"),
                             ),
-                            Icon(
-                              Icons.notifications_outlined,
-                              color: wColor,
-                              size: 30,
-                            ),
+                            IconButton(
+  icon: Icon(
+    Icons.notifications_outlined,
+    color: wColor,
+    size: 30,
+  ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationAppoint()),
+    );
+  },
+),
                           ],
                         ),
                         SizedBox(height: 15),
@@ -283,8 +292,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: GNav(
-  selectedIndex: 0, // Set the initial selected index as needed
+     bottomNavigationBar: GNav(
+  selectedIndex: 0,
   tabs: [
     GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.home, text: 'Acuieil'),
@@ -303,9 +312,20 @@ class _HomeScreenState extends State<HomeScreen> {
         context,
         MaterialPageRoute(builder: (context) => EditProfile()),
       );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => NotificationAppoint()),
+      );
+    } else if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SearchScreen()),
+      );
     }
   },
 ),
+
 
     );
   }
