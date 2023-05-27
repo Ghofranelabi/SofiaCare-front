@@ -1,11 +1,10 @@
 // ignore: unused_import
-import 'package:sofiacare/doctor/appointments_list.dart';
+import 'package:sofiacare/views/doctor/appointments_list.dart';
 // ignore: unused_import
-import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/views/home/doc_home.dart';
 // ignore: unused_import
-import 'package:sofiacare/patient/profile/appoint_screen.dart';
 // ignore: unused_import
-import 'package:sofiacare/patient/rendez_vous/booking.dart';
+import 'package:sofiacare/views/patient/rendez_vous/booking.dart';
 import 'package:sofiacare/settings/setting.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
@@ -16,7 +15,7 @@ import 'package:flutter/services.dart';
 // ignore: unused_import
 //import 'package:sofiacare/welcome_animation/sign/information_med.dart';
 // ignore: unused_import
-import 'package:sofiacare/welcome_animation/sign/sign.dart';
+import 'package:sofiacare/views/sign/sign.dart';
 
 //import 'package:flutter/foundation.dart' show kIsWeb;
 

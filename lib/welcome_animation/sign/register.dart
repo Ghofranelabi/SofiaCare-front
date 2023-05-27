@@ -1,5 +1,4 @@
 // ignore: unused_import
-import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:sofiacare/services/user_service.dart';
 // ignore: unused_import
 import 'package:sofiacare/constant.dart';
@@ -8,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/api_response.dart';
 import '../../model/user.dart';
-import '../../patient/profile/search_screen.dart';
+import '../../views/patient/profile/search_screen.dart';
 // ignore: unnecessary_statements
 
 class Register extends StatefulWidget {

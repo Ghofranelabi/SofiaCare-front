@@ -1,51 +1,59 @@
-
 import 'package:flutter/material.dart';
+import 'package:sofiacare/tools/colors.dart';
 
-import '../../tools/colors_palette.dart';
+import '../../views/patient/profile/search_screen.dart';
 
 
-class AppBarTop extends StatelessWidget {
-  const AppBarTop({
-    Key? key,
-    required this.textTop,
-  }) : super(key: key);
-  final String textTop;
+class MyAppBar extends StatelessWidget {
+  const MyAppBar({Key? key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(50.0),
-          bottomRight: Radius.circular(50.0),
-        ),
-        color: ColorsPalette.primaryColor,
+    return AppBar(
+      backgroundColor: const Color(0xFF013871),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SearchScreen()),
+          );
+        },
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
+      elevation: 0,
+      actions: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 50),
+                    child: Image.asset(
+                      'assets/Asset2.png', // Replace with your logo image path
+                      width: 30,
+                      height: 30,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: Text(
+                      "SofiaCare",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w700,
+                        color: wColor,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const Spacer(),
-             Text(
-             textTop,
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            const Spacer(),
-          ],
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

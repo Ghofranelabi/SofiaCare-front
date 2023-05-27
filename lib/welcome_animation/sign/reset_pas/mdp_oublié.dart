@@ -1,5 +1,5 @@
-import 'package:sofiacare/welcome_animation/sign/reset_pas/verif._pass.dart';
 import 'package:flutter/material.dart';
+import 'package:sofiacare/welcome_animation/sign/reset_pas/verif._pass.dart';
 
 class MdpOublie extends StatefulWidget {
   const MdpOublie({super.key});

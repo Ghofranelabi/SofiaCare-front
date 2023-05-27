@@ -1,5 +1,6 @@
-import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:flutter/material.dart';
+
+import '../login.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});

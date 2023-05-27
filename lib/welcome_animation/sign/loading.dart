@@ -1,10 +1,10 @@
 import 'package:sofiacare/constant.dart';
-import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:sofiacare/model/api_response.dart';
 import 'package:flutter/material.dart';
 
-import '../../patient/profile/search_screen.dart';
+import '../../views/patient/profile/search_screen.dart';
 import '../../services/user_service.dart';
+import 'login.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});

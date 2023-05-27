@@ -1,10 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/screens/colors.dart';
+import 'package:sofiacare/tools/colors.dart';
 // ignore: unused_import
-import 'package:sofiacare/patient/rendez_vous/date_time_picker.dart';
-import 'package:sofiacare/patient/screens/widgets/buttons/button_login.dart';
+import 'package:sofiacare/views/patient/rendez_vous/date_time_picker.dart';
+import 'package:sofiacare/views/patient/screens/widgets/buttons/button_login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 

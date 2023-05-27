@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:sofiacare/patient/home/notification_appoint.dart';
-import 'package:sofiacare/patient/home/pat_home.dart';
+import 'package:sofiacare/views/patient/home/notification_appoint.dart';
+import 'package:sofiacare/views/patient/home/pat_home.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
-import 'package:sofiacare/patient/screens/doctors_section.dart';
+import 'package:sofiacare/views/doctor/doctors_section.dart';
 
-import '../../../patient/screens/colors.dart';
+import '../../../tools/colors.dart';
 class SearchScreen extends StatefulWidget {
   static String routeName = "/home";
 

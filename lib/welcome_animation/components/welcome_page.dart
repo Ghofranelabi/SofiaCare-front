@@ -1,10 +1,7 @@
-// ignore: unused_import
-import 'package:sofiacare/welcome_animation/sign/login.dart';
-// ignore: unused_import
-import 'package:sofiacare/welcome_animation/sign/register.dart';
+
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:sofiacare/welcome_animation/sign/sign.dart';
+import 'package:sofiacare/views/sign/sign.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;

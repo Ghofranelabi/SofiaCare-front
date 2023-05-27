@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/screens/colors.dart';
+import 'package:sofiacare/tools/colors.dart';
 
 // ignore: must_be_immutable
 class QuestionAnswerScreen extends StatefulWidget {

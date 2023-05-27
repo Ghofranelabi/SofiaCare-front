@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/appointments_list.dart';
-import 'package:sofiacare/doctor/home/appointment_card.dart';
-import 'package:sofiacare/doctor/quest_ans.dart';
+import 'package:sofiacare/views/doctor/appointments_list.dart';
+import 'package:sofiacare/views/home/appointment_card.dart';
+import 'package:sofiacare/views/doctor/quest_ans.dart';
 import '../../utils/config.dart';
 
 class DoctorHome extends StatelessWidget {

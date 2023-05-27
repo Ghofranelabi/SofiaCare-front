@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/profile/presentation.dart';
-import 'package:sofiacare/patient/profile/quest_ans.dart';
-import 'package:sofiacare/patient/profile/search_screen.dart';
+import 'package:sofiacare/views/patient/profile/presentation.dart';
+import 'package:sofiacare/views/patient/profile/quest_ans.dart';
+import 'package:sofiacare/views/patient/profile/search_screen.dart';
 
-import '../../tools/colors_palette.dart';
-import '../../welcome_animation/sign/button/button_sign.dart';
-import '../screens/colors.dart';
+import '../../../tools/colors_palette.dart';
+import '../../sign/button/button_sign.dart';
+import '../../../tools/colors.dart';
 
-class Appoint extends StatefulWidget {
-  const Appoint({Key? key}) : super(key: key);
+class DoctorProfie extends StatefulWidget {
+  const DoctorProfie({Key? key}) : super(key: key);
 
   @override
-  State<Appoint> createState() => _AppointScreen();
+  State<DoctorProfie> createState() => _DoctorProfieScreen();
 }
 
-class _AppointScreen extends State<Appoint> {
+class _DoctorProfieScreen extends State<DoctorProfie> {
   final PageController _controller = PageController(
     initialPage: 0,
   );

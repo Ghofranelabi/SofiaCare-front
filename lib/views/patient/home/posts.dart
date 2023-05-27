@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/profile/appoint_screen.dart';
-import 'package:sofiacare/patient/screens/colors.dart';
+import 'package:sofiacare/tools/colors.dart';
+import 'package:sofiacare/views/patient/profile/doc_profile.dart';
 
 // ignore: unused_import
 import '../profile/presentation.dart';
@@ -37,7 +37,7 @@ class _PostsState extends State<Posts> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Appoint()),
+                      MaterialPageRoute(builder: (context) => DoctorProfie()),
                     );
                   },
                   child: Row(

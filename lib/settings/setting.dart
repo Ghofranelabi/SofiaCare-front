@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/home/notification_appoint.dart';
-import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/patient/profile/search_screen.dart';
+import 'package:sofiacare/views/patient/home/notification_appoint.dart';
+import 'package:sofiacare/views/patient/home/pat_home.dart';
+import 'package:sofiacare/views/patient/profile/search_screen.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/settings/fav_doc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:sofiacare/welcome_animation/sign/sign.dart';
+import 'package:sofiacare/views/sign/sign.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override

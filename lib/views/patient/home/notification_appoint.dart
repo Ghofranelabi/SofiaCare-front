@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:sofiacare/views/patient/home/pat_home.dart';
+import 'package:sofiacare/views/patient/profile/search_screen.dart';
+import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/utils/config.dart';
-class AppointmentList extends StatelessWidget {
-  final List<Patient> patients = [
-    Patient(name: "Ghofrane Labidi", image: "patient1.jpeg"),
-    Patient(name: "Lilia Jemai", image: "patient2.jpg"),
-    Patient(name: "Mounira ben Hadid", image: "patient3.jpeg"),
-    Patient(name: "Mohamed Labidi", image: "patient.jpg"),
-    // Add more patients as needed
+
+
+// ignore: must_be_immutable
+class NotificationAppoint extends StatelessWidget {
+  List<String> imgs = [
+    "doctor1.jpg",
+    "doctor2.jpg",
+    "doctor3.jpg",
+    "doctor4.jpg",
   ];
 
   @override
@@ -15,40 +20,78 @@ class AppointmentList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF013871),
-        title: const Text('Appointment List'),
+        title: const Text('Liste des Rendez-vous'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => DoctorHome()),
+              MaterialPageRoute(builder: (context) => SearchScreen()),
             );
           },
         ),
       ),
       body: ListView.builder(
-        itemCount: patients.length,
+        itemCount: imgs.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: AppointmentCard(patient: patients[index]),
+            child: AppointmentCard(
+              img: imgs[index],
+            ),
           );
         },
       ),
+      bottomNavigationBar: GNav(
+  selectedIndex: 2,
+  backgroundColor: Color(0xFFD9E4EE),
+  tabs: [
+    GButton(icon: Icons.home, text: 'Acuieil'),
+    GButton(icon: Icons.search, text: 'Recherche'),
+    GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
+    GButton(icon: Icons.settings, text: 'Paramétres'),
+  ],
+  onTabChange: (int index) {
+    // Handle tab change event here
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SearchScreen()),
+      );
+    } else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SettingsScreen()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => NotificationAppoint()),
+      );
+    } else if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PatHome()),
+      );
+    }
+  },
+),
     );
   }
 }
 
 class AppointmentCard extends StatefulWidget {
-  final Patient patient;
+  final String img;
 
-  const AppointmentCard({Key? key, required this.patient}) : super(key: key);
+  const AppointmentCard({required this.img}) : super();
 
   @override
-  State<AppointmentCard> createState() => _AppointmentCardState();
+  _AppointmentCardState createState() => _AppointmentCardState();
 }
 
 class _AppointmentCardState extends State<AppointmentCard> {
+  bool isAccepted = true;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,7 +110,8 @@ class _AppointmentCardState extends State<AppointmentCard> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage('assets/images/${widget.patient.image}'),
+                    backgroundImage:
+                        AssetImage("assets/images/${widget.img}"),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -75,57 +119,33 @@ class _AppointmentCardState extends State<AppointmentCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        widget.patient.name,
+                        'Doctor Name',
                         style: TextStyle(
-                          color: Colors.white, // Replace with your desired color
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'Patient',
+                        'Med',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey, // Replace with your desired color
+                          color: Colors.grey,
                         ),
                       ),
                     ],
                   ),
+                  Spacer(),
+                  if (isAccepted)
+                    Icon(
+                      Icons.check,
+                      color: Colors.green,
+                      size: 20,
+                    ),
                 ],
               ),
               Config.spaceSmall,
               ScheduleCard(),
-              Config.spaceSmall,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        'Reporter',
-                        style: TextStyle(color: Colors.white), // Replace with your desired color
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        'Accepter',
-                        style: TextStyle(color: Colors.white), // Replace with your desired color
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),
@@ -158,13 +178,13 @@ class ScheduleCard extends StatelessWidget {
           Text(
             "Lundi, 11/02/2023",
             style: TextStyle(
-              color: Colors.white, // Replace with your desired color
+              color: Colors.white,
             ),
           ),
           const SizedBox(width: 20),
           Icon(
             Icons.access_alarm,
-            color: Colors.white, // Replace with your desired color
+            color: Colors.white,
             size: 17,
           ),
           const SizedBox(width: 5),
@@ -172,7 +192,7 @@ class ScheduleCard extends StatelessWidget {
             child: Text(
               "14:00",
               style: TextStyle(
-                color: Colors.white, // Replace with your desired color
+                color: Colors.white,
               ),
             ),
           ),
@@ -180,11 +200,4 @@ class ScheduleCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class Patient {
-  final String name;
-  final String image;
-
-  Patient({required this.name, required this.image});
 }

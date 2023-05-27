@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sofiacare/welcome_animation/sign/login.dart';
 import 'package:sofiacare/welcome_animation/sign/register.dart';
+
 
 import '../../tools/colors_palette.dart';
 import 'button/button_sign.dart';
+import 'login.dart';
 
 class Sign extends StatefulWidget {
   const Sign({super.key});
