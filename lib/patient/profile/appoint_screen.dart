@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:sofiacare/patient/profile/presentation.dart';
 import 'package:sofiacare/patient/profile/quest_ans.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
+import 'package:sofiacare/patient/profile/search_screen.dart';
 
 import '../../tools/colors_palette.dart';
 import '../../welcome_animation/sign/button/button_sign.dart';
+import '../screens/colors.dart';
 
 class Appoint extends StatefulWidget {
   const Appoint({Key? key}) : super(key: key);
@@ -29,7 +29,6 @@ class _AppointScreen extends State<Appoint> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      
       child: GestureDetector(
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
@@ -40,6 +39,7 @@ class _AppointScreen extends State<Appoint> {
         },
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: const Color(0xFF013871),
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
@@ -49,16 +49,45 @@ class _AppointScreen extends State<Appoint> {
                 );
               },
             ),
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarIconBrightness: Brightness.dark,
-            ),
-            backgroundColor: Colors.transparent,
             elevation: 0,
+            actions: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 50),
+                          child: Image.asset(
+                            'assets/Asset2.png', // Replace with your logo image path
+                            width: 30,
+                            height: 30,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 10),
+                          child: Text(
+                            "SofiaCare",
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
+                              color: wColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           body: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 1), // Adjust the top padding value as needed
+                padding: EdgeInsets.only(top: 10), // Adjust the top padding value as needed
                 child: Container(
                   height: 120,
                   width: 120,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/patient/profile/edit_profile.dart';
+import 'package:sofiacare/patient/profile/search_screen.dart';
+import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/utils/config.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
+
 
 // ignore: must_be_immutable
 class NotificationAppoint extends StatelessWidget {
@@ -42,24 +43,25 @@ class NotificationAppoint extends StatelessWidget {
         },
       ),
       bottomNavigationBar: GNav(
-  selectedIndex: 0,
+  selectedIndex: 2,
+  backgroundColor: Color(0xFFD9E4EE),
   tabs: [
-    GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.home, text: 'Acuieil'),
+    GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
-    GButton(icon: Icons.person, text: 'Profil'),
+    GButton(icon: Icons.settings, text: 'Paramétres'),
   ],
   onTabChange: (int index) {
     // Handle tab change event here
     if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PatHome()),
+        MaterialPageRoute(builder: (context) => SearchScreen()),
       );
     } else if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EditProfile()),
+        MaterialPageRoute(builder: (context) => SettingsScreen()),
       );
     } else if (index == 2) {
       Navigator.push(
@@ -69,7 +71,7 @@ class NotificationAppoint extends StatelessWidget {
     } else if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SearchScreen()),
+        MaterialPageRoute(builder: (context) => PatHome()),
       );
     }
   },
@@ -88,6 +90,8 @@ class AppointmentCard extends StatefulWidget {
 }
 
 class _AppointmentCardState extends State<AppointmentCard> {
+  bool isAccepted = true;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,7 +110,8 @@ class _AppointmentCardState extends State<AppointmentCard> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage("assets/images/${widget.img}"),
+                    backgroundImage:
+                        AssetImage("assets/images/${widget.img}"),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -130,6 +135,13 @@ class _AppointmentCardState extends State<AppointmentCard> {
                       ),
                     ],
                   ),
+                  Spacer(),
+                  if (isAccepted)
+                    Icon(
+                      Icons.check,
+                      color: Colors.green,
+                      size: 20,
+                    ),
                 ],
               ),
               Config.spaceSmall,

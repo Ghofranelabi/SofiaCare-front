@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-class QuestionAnswerScreen extends StatefulWidget {  
+
+
+class QuestionAnswerScreen extends StatefulWidget {
   @override
   _QuestionAnswerScreenState createState() => _QuestionAnswerScreenState();
 }
+
 class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
   List imgs = [
     "patient.jpg",

@@ -3,19 +3,18 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/patient/profile/edit_profile.dart';
+import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
-import '../screens/colors.dart';
 
-class HomeScreen extends StatefulWidget {
+import '../../../patient/screens/colors.dart';
+class SearchScreen extends StatefulWidget {
   static String routeName = "/home";
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SearchScreenState extends State<SearchScreen> {
   String nomUtilisateur = "John Doe";
   List<String> catNames = [
     "Dentiste",
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD9E4EE),
+      backgroundColor: wColor,
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -121,11 +120,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundImage:
                                   AssetImage("assets/images/doctor1.jpg"),
                             ),
-                            Icon(
-                              Icons.notifications_outlined,
-                              color: wColor,
-                              size: 30,
-                            ),
+                            IconButton(
+  icon: Icon(
+    Icons.notifications_outlined,
+    color: wColor,
+    size: 30,
+  ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NotificationAppoint()),
+    );
+  },
+),
                           ],
                         ),
                         SizedBox(height: 15),
@@ -285,8 +292,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: GNav(
+     bottomNavigationBar: GNav(
   selectedIndex: 0,
+backgroundColor: Color(0xFFD9E4EE),
   tabs: [
     GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.home, text: 'Acuieil'),
@@ -318,6 +326,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   },
 ),
+
+
     );
   }
 }

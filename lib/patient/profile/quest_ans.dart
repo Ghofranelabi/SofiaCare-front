@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/patient/rendez_vous/booking.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
 
 // ignore: must_be_immutable
 class QuestionAnswerScreen extends StatefulWidget {
-  List imgs = [
+  List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
     "doctor3.jpg",
@@ -23,25 +22,6 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: 0.5), // Add space at the top
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Booking()),
-              );
-            },
-            child: Container(
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 166, 208, 243),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.calendar_month,
-              ),
-            ),
-          ),
           Expanded(
             child: SizedBox(
               height: 500,
@@ -74,7 +54,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                                   "assets/images/${widget.imgs[index]}"),
                             ),
                             title: Text(
-                              "Dr.Labidi",
+                              "Dr. Labidi",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -94,7 +74,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Des odeurs dans la bouche ",
+                                    "Des odeurs dans la bouche",
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w600,
@@ -111,7 +91,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
-                              "Je porte un dotier et j'ai des odeurs dans ma bouche malgré que je brosse mes dents qu'est ce qui'il y a lieu de faire svp ?",
+                              "Je porte un dotier et j'ai des odeurs dans ma bouche malgré que je brosse mes dents. Qu'est-ce qu'il y a lieu de faire svp?",
                               style: TextStyle(
                                 color: bColor.withOpacity(0.7),
                               ),
@@ -139,15 +119,12 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                               ),
                             ),
                           ),
-                          if (isExpandedList[index])
-                            SizedBox(
-                              height: 2,
-                            ),
+                          if (isExpandedList[index]) SizedBox(height: 2),
                           if (isExpandedList[index])
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                "Pour éviter ce genre des problèmes, il faut bien nettoyer la prothèse à chaque repas et faire un bain de bouche",
+                                "Pour éviter ce genre de problèmes, il faut bien nettoyer la prothèse à chaque repas et faire un bain de bouche.",
                                 style: TextStyle(
                                   color: bColor.withOpacity(0.7),
                                 ),

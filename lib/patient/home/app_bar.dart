@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
+
+import '../profile/search_screen.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({Key? key});

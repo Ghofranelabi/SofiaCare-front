@@ -5,10 +5,10 @@ import 'package:sofiacare/services/user_service.dart';
 import 'package:sofiacare/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
 
 import '../../model/api_response.dart';
 import '../../model/user.dart';
+import '../../patient/profile/search_screen.dart';
 // ignore: unnecessary_statements
 
 class Register extends StatefulWidget {

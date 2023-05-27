@@ -27,10 +27,12 @@ class _PostsState extends State<Posts> {
         itemBuilder: (BuildContext context, int index) {
           bool isLoved = isLovedList[index];
 
-          return Container(
-            margin: EdgeInsets.only(bottom: 10),
-            child: Column(
-              children: [
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10), // Add horizontal padding
+            child: Container(
+              margin: EdgeInsets.only(bottom: 10),
+              child: Column(
+                children: [
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -238,6 +240,7 @@ class _PostsState extends State<Posts> {
                   ),
                 ),
               ],
+            ),
             ),
           );
         },

@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sofiacare/patient/screens/colors.dart';
-import 'package:sofiacare/welcome_animation/sign/reset_pas/home_screen.dart';
+import 'package:sofiacare/settings/setting.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -11,13 +13,14 @@ class EditProfile extends StatefulWidget {
 
 class _EditProfileState extends State<EditProfile> {
   bool isObscurePassword = true;
+  String? capturedImagePath;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF013871),
-        title: const Text("Paramétres"),
+        title: const Text("Modifier Profil"),
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -27,23 +30,11 @@ class _EditProfileState extends State<EditProfile> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => SearchScreen(),
+                builder: (context) => SettingsScreen(),
               ),
             );
           },
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              // Add your desired functionality here
-              // Example: Open settings screen
-            },
-          ),
-        ],
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
@@ -71,7 +62,9 @@ class _EditProfileState extends State<EditProfile> {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage("assets/images/patient.jpeg"),
+                          image: capturedImagePath != null
+                              ? FileImage(File(capturedImagePath!)) as ImageProvider<Object>
+                              : AssetImage("assets/images/patient1.jpeg"),
                         ),
                       ),
                     ),
@@ -89,9 +82,13 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           color: const Color(0xFF013871),
                         ),
-                        child: const Icon(
-                          Icons.edit,
-                          color: wColor,
+                        child: IconButton(
+                          icon: const Icon(
+                            Icons.camera_alt,
+                            size: 16.0,
+                            color: Colors.white,
+                          ),
+                          onPressed: openCamera,
                         ),
                       ),
                     ),
@@ -152,9 +149,21 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 
+  void openCamera() async {
+    final image = await ImagePicker().getImage(source: ImageSource.camera);
+    // Handle the captured image
+    if (image != null) {
+      setState(() {
+        capturedImagePath = image.path;
+      });
+    }
+  }
+
   Widget buildTextField(
-      // ignore: non_constant_identifier_names
-      String labelText, String Placeholder, bool isPasswordTextField) {
+    String labelText,
+    String placeholder,
+    bool isPasswordTextField,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(
         bottom: 30,
@@ -174,7 +183,7 @@ class _EditProfileState extends State<EditProfile> {
           contentPadding: const EdgeInsets.only(bottom: 5),
           labelText: labelText,
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          hintText: Placeholder,
+          hintText: placeholder,
           hintStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,

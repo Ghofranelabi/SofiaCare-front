@@ -3,8 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/patient/screens/doctors_section.dart';
+import 'package:sofiacare/settings/setting.dart';
 
 import '../../../patient/screens/colors.dart';
 class SearchScreen extends StatefulWidget {
@@ -293,24 +293,24 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
      bottomNavigationBar: GNav(
-  selectedIndex: 0,
+  selectedIndex: 1,
   tabs: [
-    GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.home, text: 'Acuieil'),
+    GButton(icon: Icons.search, text: 'Recherche'),
     GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
-    GButton(icon: Icons.person, text: 'Profil'),
+    GButton(icon: Icons.settings, text: 'Paramétres'),
   ],
   onTabChange: (int index) {
     // Handle tab change event here
     if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => PatHome()),
+        MaterialPageRoute(builder: (context) => SearchScreen()),
       );
     } else if (index == 3) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EditProfile()),
+        MaterialPageRoute(builder: (context) => SettingsScreen()),
       );
     } else if (index == 2) {
       Navigator.push(
@@ -320,7 +320,7 @@ class _SearchScreenState extends State<SearchScreen> {
     } else if (index == 0) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SearchScreen()),
+        MaterialPageRoute(builder: (context) => PatHome()),
       );
     }
   },

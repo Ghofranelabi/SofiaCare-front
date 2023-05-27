@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/api_response.dart';
 import '../../model/user.dart';
+import '../../patient/profile/search_screen.dart';
 import '../../services/user_service.dart';
-import '../../welcome_animation/sign/reset_pas/home_screen.dart';
 import '../../welcome_animation/sign/reset_pas/mdp_oubli%C3%A9.dart';
 
 class Login extends StatefulWidget {
