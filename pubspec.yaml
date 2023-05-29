@@ -25,13 +25,13 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^1.1.0
-  table_calendar: ^3.0.8
+  table_calendar: ^3.0.9
   mdi: 
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
   font_awesome_flutter: ^10.1.0
   flutter_rating_bar: ^4.0.1
-  intl: ^0.17.0
+  intl: ^0.18.0
   animations: ^2.0.3
   animated_text_kit: ^4.2.2
   http: ^0.13.5
