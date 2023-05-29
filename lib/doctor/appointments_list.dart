@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/views/home/doc_home.dart';
 import 'package:sofiacare/utils/config.dart';
+
 class AppointmentList extends StatelessWidget {
   final List<Patient> patients = [
     Patient(name: "Ghofrane Labidi", image: "patient1.jpeg"),
@@ -35,6 +37,58 @@ class AppointmentList extends StatelessWidget {
           );
         },
       ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          child: GNav(
+            rippleColor: Colors.grey[300]!,
+            hoverColor: Colors.grey[100]!,
+            gap: 8,
+            activeColor: Color(0xFF013871),
+            iconSize: 24,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            duration: Duration(milliseconds: 400),
+            tabBackgroundColor: Colors.grey[800]!,
+            color: Colors.black,
+            tabs: [
+              GButton(
+                icon: Icons.home,
+                text: 'Accueil',
+              ),
+              GButton(
+                icon: Icons.file_copy,
+                text: 'Dossiers',
+              ),
+              GButton(
+                icon: Icons.calendar_month,
+                text: 'Rendez-vous',
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Paramètres',
+              ),
+            ],
+            selectedIndex: 2,
+            onTabChange: (index) {
+              if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DoctorHome()),
+                );
+              } else if (index == 1) {
+                // we are already on this page
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppointmentList()),
+                );
+              } else if (index == 3) {
+                // handle settings navigation
+              }
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -67,7 +121,8 @@ class _AppointmentCardState extends State<AppointmentCard> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage('assets/images/${widget.patient.image}'),
+                    backgroundImage:
+                        AssetImage('assets/images/${widget.patient.image}'),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -77,7 +132,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                       Text(
                         widget.patient.name,
                         style: TextStyle(
-                          color: Colors.white, // Replace with your desired color
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -86,7 +141,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey, // Replace with your desired color
+                          color: Colors.grey,
                         ),
                       ),
                     ],
@@ -107,7 +162,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                       onPressed: () {},
                       child: const Text(
                         'Reporter',
-                        style: TextStyle(color: Colors.white), // Replace with your desired color
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -120,7 +175,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                       onPressed: () {},
                       child: const Text(
                         'Accepter',
-                        style: TextStyle(color: Colors.white), // Replace with your desired color
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -158,13 +213,13 @@ class ScheduleCard extends StatelessWidget {
           Text(
             "Lundi, 11/02/2023",
             style: TextStyle(
-              color: Colors.white, // Replace with your desired color
+              color: Colors.white,
             ),
           ),
           const SizedBox(width: 20),
           Icon(
             Icons.access_alarm,
-            color: Colors.white, // Replace with your desired color
+            color: Colors.white,
             size: 17,
           ),
           const SizedBox(width: 5),
@@ -172,7 +227,7 @@ class ScheduleCard extends StatelessWidget {
             child: Text(
               "14:00",
               style: TextStyle(
-                color: Colors.white, // Replace with your desired color
+                color: Colors.white,
               ),
             ),
           ),

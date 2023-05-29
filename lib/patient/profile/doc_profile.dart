@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
-import 'package:sofiacare/views/patient/profile/presentation.dart';
-
-
-import '../../../tools/colors_palette.dart';
-import '../../../welcome_animation/sign/button/button_sign.dart';
-import '../../../tools/colors.dart';
+import 'package:sofiacare/tools/colors.dart';
+import '../../tools/colors_palette.dart';
+import '../../views/patient/profile/presentation.dart';
+import '../../welcome_animation/sign/button/button_sign.dart';
 import 'quest_ans.dart';
 
 class DoctorProfile extends StatefulWidget {
   const DoctorProfile({Key? key}) : super(key: key);
 
   @override
-  State<DoctorProfile> createState() => _DoctorProfieScreen();
+  State<DoctorProfile> createState() => _DoctorProfileScreenState();
 }
 
-class _DoctorProfieScreen extends State<DoctorProfile> {
-  final PageController _controller = PageController(
-    initialPage: 0,
-  );
+class _DoctorProfileScreenState extends State<DoctorProfile> {
+  final PageController _controller = PageController(initialPage: 0);
   int currentPage = 0;
 
   @override
@@ -62,7 +58,7 @@ class _DoctorProfieScreen extends State<DoctorProfile> {
                         Container(
                           margin: EdgeInsets.only(left: 50),
                           child: Image.asset(
-                            'assets/Asset2.png', // Replace with your logo image path
+                            'assets/Asset2.png',
                             width: 30,
                             height: 30,
                           ),
@@ -88,7 +84,7 @@ class _DoctorProfieScreen extends State<DoctorProfile> {
           body: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 10), // Adjust the top padding value as needed
+                padding: EdgeInsets.only(top: 10),
                 child: Container(
                   height: 120,
                   width: 120,
@@ -122,7 +118,7 @@ class _DoctorProfieScreen extends State<DoctorProfile> {
                       color: ColorsPalette.primaryColor.withOpacity(0.2),
                       spreadRadius: 5,
                       blurRadius: 7,
-                      offset: const Offset(0, 3), // changes position of shadow
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -174,7 +170,7 @@ class _DoctorProfieScreen extends State<DoctorProfile> {
                   controller: _controller,
                   children: [
                     Presentation(),
-                    QuestionAnswerScreen(),
+                    PquestionAnswer(), // Updated class name
                   ],
                 ),
               ),

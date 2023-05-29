@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/quest_ans.dart';
+import 'package:sofiacare/doctor/home/Doctorques.dart';
 import '../../../doctor/appointments_list.dart';
 import '../../../doctor/home/appointment_card.dart';
 import '../../../utils/config.dart';
@@ -78,7 +78,7 @@ class DoctorHome extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    QuestionAnswerScreen(),
+                    DoctorQues(),
                   ],
                 ),
               ),

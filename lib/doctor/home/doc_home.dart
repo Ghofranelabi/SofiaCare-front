@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../../utils/config.dart';
-import '../../patient/profile/quest_ans.dart';
-import '../appointments_list.dart';
-import 'appointment_card.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:sofiacare/doctor/appointments_list.dart';
+import 'package:sofiacare/doctor/home/Doctorques.dart';
+import 'package:sofiacare/doctor/home/appointment_card.dart';
+import '../../utils/config.dart';
 
 class DoctorHome extends StatelessWidget {
   @override
@@ -11,13 +11,10 @@ class DoctorHome extends StatelessWidget {
     Config().init(context);
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 15,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: SafeArea(
           child: Column(
-            mainAxisSize: MainAxisSize.min, // Added this line
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,24 +63,80 @@ class DoctorHome extends StatelessWidget {
               ),
               Config.spaceSmall,
               Align(
-                alignment: Alignment.topCenter,
-                child: Text(
-                  "Mes Questions",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+  alignment: Alignment.topCenter,
+  child: FractionalTranslation(
+    translation: Offset(0, -0.9), // Adjust the vertical position here
+    child: Text(
+      "Mes Questions",
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  ),
+),
               Config.spaceSmall,
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    QuestionAnswerScreen(),
+                    DoctorQues(),
                   ],
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          child: GNav(
+            rippleColor: Colors.grey[300]!,
+            hoverColor: Colors.grey[100]!,
+            gap: 8,
+            activeColor: Color(0xFF013871),
+            iconSize: 24,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            duration: Duration(milliseconds: 400),
+            tabBackgroundColor: Colors.grey[800]!,
+            color: Colors.black,
+            tabs: [
+              GButton(
+                icon: Icons.home,
+                text: 'Accueil',
+              ),
+              GButton(
+                icon: Icons.file_copy,
+                text: 'Dossiers',
+              ),
+              GButton(
+                icon: Icons.calendar_month,
+                text: 'Rendez-vous',
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Paramètres',
+              ),
+            ],
+            selectedIndex: 0 ,
+            onTabChange: (index) {
+              if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DoctorHome()),
+                );
+              } else if (index == 1) {
+                // we are already on this page
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppointmentList()),
+                );
+                
+              } else if (index == 3) {
+                
+              }
+            },
           ),
         ),
       ),

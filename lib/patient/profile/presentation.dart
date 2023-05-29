@@ -30,8 +30,8 @@ class _PresentationState extends State<Presentation> {
               child: Text(
                 "Dr.Labidi",
                 style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
                   color: Color(0xFF013871),
                   decoration: TextDecoration.underline,
                 ),

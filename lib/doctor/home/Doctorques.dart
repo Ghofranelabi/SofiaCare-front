@@ -1,9 +1,8 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
 
-class PquestionAnswer extends StatefulWidget {
+// ignore: must_be_immutable
+class DoctorQues extends StatefulWidget {
   List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
@@ -12,10 +11,10 @@ class PquestionAnswer extends StatefulWidget {
   ];
 
   @override
-  _PQuestionAnswerState createState() => _PQuestionAnswerState();
+  _DoctorQuesState createState() => _DoctorQuesState();
 }
 
-class _PQuestionAnswerState extends State<PquestionAnswer> {
+class _DoctorQuesState extends State<DoctorQues> {
   List<bool> isExpandedList = [false, false, false];
 
   @override
@@ -102,7 +101,7 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
                       });
                     },
                     child: Container(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       margin: EdgeInsets.only(left: 20),
                       child: Text(
                         "Réponse",
@@ -114,9 +113,13 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
                       ),
                     ),
                   ),
-                  if (isExpandedList[index]) ...[
-                    SizedBox(height: 2),
-                    Padding(
+                  Visibility(
+                    visible: isExpandedList[index],
+                    child: SizedBox(height: 2),
+                  ),
+                  Visibility(
+                    visible: isExpandedList[index],
+                    child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         "Pour éviter ce genre de problèmes, il faut bien nettoyer la prothèse à chaque repas et faire un bain de bouche.",
@@ -125,7 +128,7 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
                         ),
                       ),
                     ),
-                  ],
+                  ),
                 ],
               ),
             ),
