@@ -1,10 +1,7 @@
 // ignore: unused_import
-import 'package:sofiacare/views/doctor/appointments_list.dart';
-// ignore: unused_import
 import 'package:sofiacare/views/home/doc_home.dart';
 // ignore: unused_import
 // ignore: unused_import
-import 'package:sofiacare/views/patient/rendez_vous/booking.dart';
 import 'package:sofiacare/settings/setting.dart';
 // ignore: unused_import
 import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
@@ -12,8 +9,6 @@ import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
 import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// ignore: unused_import
-//import 'package:sofiacare/welcome_animation/sign/information_med.dart';
 // ignore: unused_import
 import 'package:sofiacare/views/sign/sign.dart';
 
@@ -33,6 +28,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Settings Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Color(0xFFD9E4EE),
+        appBarTheme: AppBarTheme(
+          color: Color(0xFF013871), // Set the app bar color
+        ),
+      ),
         debugShowCheckedModeBanner: false,
          home:SettingsScreen());
   }

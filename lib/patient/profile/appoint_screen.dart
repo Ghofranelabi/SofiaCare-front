@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sofiacare/doctor/quest_ans.dart';
+import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/views/patient/profile/presentation.dart';
-import 'package:sofiacare/views/patient/profile/quest_ans.dart';
-import 'package:sofiacare/views/patient/profile/search_screen.dart';
+
 
 import '../../../tools/colors_palette.dart';
-import '../../sign/button/button_sign.dart';
 import '../../../tools/colors.dart';
+import '../../../welcome_animation/sign/button/button_sign.dart';
 
 class DoctorProfie extends StatefulWidget {
   const DoctorProfie({Key? key}) : super(key: key);

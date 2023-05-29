@@ -1,8 +1,8 @@
 import 'package:sofiacare/constant.dart';
 import 'package:sofiacare/model/api_response.dart';
 import 'package:flutter/material.dart';
+import 'package:sofiacare/patient/home/search_screen.dart';
 
-import '../../views/patient/profile/search_screen.dart';
 import '../../services/user_service.dart';
 import 'login.dart';
 

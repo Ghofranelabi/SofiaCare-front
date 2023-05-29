@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
-import 'package:sofiacare/views/patient/profile/doc_profile.dart';
 
-class DocTorsSection extends StatefulWidget {
+import '../../patient/profile/appoint_screen.dart';
+
+class DoctorSection extends StatefulWidget {
   @override
-  _DocTorsSectionState createState() => _DocTorsSectionState();
+  _DoctorSectionState createState() => _DoctorSectionState();
 }
 
-class _DocTorsSectionState extends State<DocTorsSection> {
+class _DoctorSectionState extends State<DoctorSection> {
   List<bool> isFavoriteList = List.generate(4, (_) => false);
 
   @override
@@ -49,7 +50,7 @@ class _DocTorsSectionState extends State<DocTorsSection> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DoctorProfie(),
+                                builder: (context) => DoctorProfie(), // Corrected widget name
                               ),
                             );
                           },

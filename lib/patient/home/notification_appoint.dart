@@ -1,19 +1,23 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:sofiacare/views/patient/home/pat_home.dart';
-import 'package:sofiacare/views/patient/profile/search_screen.dart';
+import 'package:sofiacare/patient/home/pat_home.dart';
+import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/utils/config.dart';
 
 
-// ignore: must_be_immutable
 class NotificationAppoint extends StatelessWidget {
-  List<String> imgs = [
+  final List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
     "doctor3.jpg",
     "doctor4.jpg",
   ];
+
+  // ignore: unused_field
+  int _selectedIndex = 2; // Set the initial selected index to 2 for "Rendez-vous"
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +28,7 @@ class NotificationAppoint extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SearchScreen()),
-            );
+            Navigator.pop(context); // Use pop to go back to the previous screen
           },
         ),
       ),
@@ -42,40 +43,64 @@ class NotificationAppoint extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: GNav(
-  selectedIndex: 2,
-  backgroundColor: Color(0xFFD9E4EE),
-  tabs: [
-    GButton(icon: Icons.home, text: 'Acuieil'),
-    GButton(icon: Icons.search, text: 'Recherche'),
-    GButton(icon: Icons.calendar_month, text: 'Rendez-vous'),
-    GButton(icon: Icons.settings, text: 'Paramétres'),
-  ],
-  onTabChange: (int index) {
-    // Handle tab change event here
-    if (index == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SearchScreen()),
-      );
-    } else if (index == 3) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SettingsScreen()),
-      );
-    } else if (index == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => NotificationAppoint()),
-      );
-    } else if (index == 0) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => PatHome()),
-      );
-    }
-  },
-),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          child: GNav(
+            rippleColor: Colors.grey[300]!,
+            hoverColor: Colors.grey[100]!,
+            gap: 8,
+            activeColor: Color(0xFF013871),
+            iconSize: 24,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            duration: Duration(milliseconds: 400),
+            tabBackgroundColor: Colors.grey[800]!,
+            color: Colors.black,
+            tabs: [
+              GButton(
+                icon: Icons.home,
+                text: 'Accueil',
+              ),
+              GButton(
+                icon: Icons.search,
+                text: 'Recherche',
+              ),
+              GButton(
+                icon: Icons.calendar_month,
+                text: 'Rendez-vous',
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Paramètres',
+              ),
+            ],
+            selectedIndex: 2,
+            onTabChange: (index) {
+              if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PatHome()),
+                );
+              } else if (index == 1) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationAppoint()),
+                );
+              } else if (index == 3) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsScreen()),
+                );
+              }
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -110,8 +135,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage:
-                        AssetImage("assets/images/${widget.img}"),
+                    backgroundImage: AssetImage("assets/images/${widget.img}"),
                   ),
                   const SizedBox(width: 10),
                   Column(

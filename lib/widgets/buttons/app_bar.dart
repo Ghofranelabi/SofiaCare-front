@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/tools/colors.dart';
 
-import '../../views/patient/profile/search_screen.dart';
+
 
 
 class MyAppBar extends StatelessWidget {

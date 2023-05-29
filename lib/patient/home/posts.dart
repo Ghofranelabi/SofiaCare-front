@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
-import 'package:sofiacare/views/patient/profile/doc_profile.dart';
 
 // ignore: unused_import
-import '../profile/presentation.dart';
+import '../profile/doc_profile.dart';
 
 class Posts extends StatefulWidget {
   const Posts();
@@ -21,7 +20,7 @@ class _PostsState extends State<Posts> {
       height: 1000,
       margin: EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width,
-      color: Colors.white,
+      color: Color(0xFFD9E4EE),
       child: ListView.builder(
         itemCount: 2,
         itemBuilder: (BuildContext context, int index) {
@@ -37,7 +36,7 @@ class _PostsState extends State<Posts> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => DoctorProfie()),
+                      MaterialPageRoute(builder: (context) => DoctorProfile()),
                     );
                   },
                   child: Row(
@@ -101,6 +100,7 @@ class _PostsState extends State<Posts> {
                                 Container(
                                   alignment: Alignment.center,
                                   width: 30,
+                                  color: Color(0xFFD9E4EE),
                                   child: Icon(
                                     isLoved ? Icons.favorite : Icons.favorite_border,
                                     color: Colors.red,
@@ -109,6 +109,7 @@ class _PostsState extends State<Posts> {
                                 Container(
                                   alignment: Alignment.center,
                                   width: 40,
+                                  color: Color(0xFFD9E4EE),
                                   child: Text("like"),
                                 ),
                               ],
@@ -125,6 +126,7 @@ class _PostsState extends State<Posts> {
                               Container(
                                 alignment: Alignment.center,
                                 width: 30,
+                                color: Color(0xFFD9E4EE),
                                 child: Icon(
                                   Icons.comment,
                                   color: Colors.green,
@@ -133,6 +135,7 @@ class _PostsState extends State<Posts> {
                               Container(
                                 alignment: Alignment.center,
                                 width: 90,
+                                color: Color(0xFFD9E4EE),
                                 child: Text("Commenter"),
                               ),
                             ],
@@ -191,13 +194,14 @@ class _PostsState extends State<Posts> {
                           child: Container(
                             margin: EdgeInsets.only(top: 5),
                             alignment: Alignment.center,
-                            color: wColor,
+                            color: Color(0xFFD9E4EE),
                             height: 60,
                             child: Row(
                               children: [
                                 Container(
                                   alignment: Alignment.center,
                                   width: 30,
+                                  color: Color(0xFFD9E4EE),
                                   child: Icon(
                                     Icons.favorite_border,
                                     color: Colors.red,
@@ -206,6 +210,7 @@ class _PostsState extends State<Posts> {
                                 Container(
                                   alignment: Alignment.center,
                                   width: 40,
+                                  color: Color(0xFFD9E4EE),
                                   child: Text("like"),
                                 ),
                               ],
@@ -222,6 +227,7 @@ class _PostsState extends State<Posts> {
                               Container(
                                 alignment: Alignment.center,
                                 width: 30,
+                                color: Color(0xFFD9E4EE),
                                 child: Icon(
                                   Icons.comment,
                                   color: Colors.green,
@@ -230,6 +236,7 @@ class _PostsState extends State<Posts> {
                               Container(
                                 alignment: Alignment.center,
                                 width: 90,
+                                color: Color(0xFFD9E4EE),
                                 child: Text("Commenter"),
                               ),
                             ],

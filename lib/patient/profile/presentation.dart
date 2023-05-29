@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
+// ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../patient/rendez_vous/date_time_picker.dart';
-import '../../../patient/screens/widgets/buttons/button_login.dart';
+import '../../widgets/buttons/button_login.dart';
+import '../rendez_vous/date_time_picker.dart';
 
 
 class Presentation extends StatefulWidget {

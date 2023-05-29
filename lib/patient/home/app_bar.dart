@@ -3,7 +3,6 @@ import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/tools/colors.dart';
 
 
-
 class MyAppBar extends StatelessWidget {
   const MyAppBar({Key? key});
 
