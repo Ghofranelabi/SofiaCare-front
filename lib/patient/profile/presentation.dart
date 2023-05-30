@@ -1,12 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:sofiacare/patient/rendez_vous/booking.dart';
 import 'package:sofiacare/tools/colors.dart';
 // ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../widgets/buttons/button_login.dart';
-import '../rendez_vous/date_time_picker.dart';
 
 
 class Presentation extends StatefulWidget {
@@ -23,14 +23,14 @@ class _PresentationState extends State<Presentation> {
       body: ListView(
         children: [
           SizedBox(
-            height: 50,
+            height: 100,
             child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
               child: Center(
               child: Text(
                 "Dr.Labidi",
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF013871),
                   decoration: TextDecoration.underline,
@@ -208,7 +208,7 @@ SizedBox(height: 100),
               child: ButtonLogin(onTap: (){  Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DateTimePicker(),
+                            builder: (context) =>  Booking(),
                           ),
                         );}, text: "Prenez un Rendez-vous"),
             ),

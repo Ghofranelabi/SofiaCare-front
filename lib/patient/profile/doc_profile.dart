@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
+import 'package:sofiacare/patient/profile/presentation.dart';
 import 'package:sofiacare/tools/colors.dart';
 import '../../tools/colors_palette.dart';
-import '../../views/patient/profile/presentation.dart';
 import '../../welcome_animation/sign/button/button_sign.dart';
 import 'quest_ans.dart';
 
