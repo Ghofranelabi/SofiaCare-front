@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sofiacare/doctor/home/Doctorques.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/patient/profile/presentation.dart';
+import 'package:sofiacare/patient/profile/quest_ans.dart';
 
 
 import '../../../tools/colors_palette.dart';
@@ -174,7 +175,7 @@ class _DoctorProfieScreen extends State<DoctorProfie> {
                   controller: _controller,
                   children: [
                     Presentation(),
-                    DoctorQues(),
+                    PquestionAnswer(),
                   ],
                 ),
               ),

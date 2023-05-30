@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:sofiacare/views/home/doc_home.dart';
 import 'package:sofiacare/utils/config.dart';
+
+import 'home/doc_home.dart';
 
 class AppointmentList extends StatelessWidget {
   final List<Patient> patients = [

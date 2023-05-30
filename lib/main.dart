@@ -15,6 +15,8 @@ import 'package:flutter/services.dart';
 import 'package:sofiacare/views/sign/sign.dart';
 import 'package:sofiacare/welcome_animation/sign/register.dart';
 
+import 'doctor/dossier.dart';
+
 //import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
         debugShowCheckedModeBanner: false,
-         home:Sign());
+         home:MedicalDocument());
   }
 }
 

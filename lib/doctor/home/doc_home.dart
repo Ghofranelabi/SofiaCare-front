@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
+import 'package:sofiacare/doctor/dossier.dart';
 import 'package:sofiacare/doctor/home/Doctorques.dart';
 import 'package:sofiacare/doctor/home/appointment_card.dart';
 import '../../utils/config.dart';
@@ -79,7 +80,7 @@ class DoctorHome extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    DoctorQues(),
+                    QuestionAnswerScreen(),
                   ],
                 ),
               ),
@@ -126,7 +127,10 @@ class DoctorHome extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => DoctorHome()),
                 );
               } else if (index == 1) {
-                // we are already on this page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MedicalDocument()),
+                );
               } else if (index == 2) {
                 Navigator.push(
                   context,
