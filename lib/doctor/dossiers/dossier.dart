@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 
 class MedicalDocument extends StatefulWidget {
   @override
@@ -30,7 +30,7 @@ class _MedicalDocumentState extends State<MedicalDocument> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => DoctorHome(), // Navigate to DoctorHome
+                builder: (context) => FileHome(), // Navigate to DoctorHome
               ),
             );
           },

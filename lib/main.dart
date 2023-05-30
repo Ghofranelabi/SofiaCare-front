@@ -1,8 +1,7 @@
 // ignore: unused_import
 import 'package:sofiacare/doctor/home/doc_home.dart';
-import 'package:sofiacare/patient/rendez_vous/booking.dart';
-import 'package:sofiacare/services/user_service.dart';
-// ignore: unused_import
+
+
 // ignore: unused_import
 import 'package:sofiacare/settings/setting.dart';
 // ignore: unused_import
@@ -13,9 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // ignore: unused_import
 import 'package:sofiacare/views/sign/sign.dart';
-import 'package:sofiacare/welcome_animation/sign/register.dart';
 
-import 'doctor/dossier.dart';
 
 //import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -42,7 +39,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
         debugShowCheckedModeBanner: false,
-         home:MedicalDocument());
+         home:DoctorHome());
   }
 }
 

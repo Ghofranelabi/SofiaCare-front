@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/utils/config.dart';
 
 import 'home/doc_home.dart';
@@ -69,7 +70,7 @@ class AppointmentList extends StatelessWidget {
                 text: 'Paramètres',
               ),
             ],
-            selectedIndex: 2,
+            selectedIndex: 2 ,
             onTabChange: (index) {
               if (index == 0) {
                 Navigator.push(
@@ -77,14 +78,18 @@ class AppointmentList extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => DoctorHome()),
                 );
               } else if (index == 1) {
-                // we are already on this page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FileHome()),
+                );
               } else if (index == 2) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AppointmentList()),
                 );
+                
               } else if (index == 3) {
-                // handle settings navigation
+                
               }
             },
           ),

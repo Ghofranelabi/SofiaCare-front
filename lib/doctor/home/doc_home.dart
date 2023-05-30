@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
-import 'package:sofiacare/doctor/dossier.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
+import 'package:sofiacare/doctor/dossiers/dossier.dart';
 import 'package:sofiacare/doctor/home/Doctorques.dart';
 import 'package:sofiacare/doctor/home/appointment_card.dart';
 import '../../utils/config.dart';
@@ -108,7 +109,7 @@ class DoctorHome extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.file_copy,
-                text: 'Dossiers',
+                text: 'Dossiers ',
               ),
               GButton(
                 icon: Icons.calendar_month,
@@ -129,7 +130,7 @@ class DoctorHome extends StatelessWidget {
               } else if (index == 1) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MedicalDocument()),
+                  MaterialPageRoute(builder: (context) => FileHome()),
                 );
               } else if (index == 2) {
                 Navigator.push(

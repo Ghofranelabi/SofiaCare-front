@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sofiacare/tools/colors.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/settings/setting.dart';
+import 'package:sofiacare/tools/colors.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
