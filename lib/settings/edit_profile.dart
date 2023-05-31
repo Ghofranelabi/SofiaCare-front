@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/tools/colors.dart';
 
@@ -100,7 +99,6 @@ class _EditProfileState extends State<EditProfile> {
                 height: 30,
               ),
               buildTextField("Nom Complet", "Ghofrane", false),
-              buildTextField("Email", "Ghofrana744@gmail.com", false),
               buildTextField("Mot de passe", "******", true),
               buildTextField("Adresse", "Bizerte", false),
               Row(
@@ -117,9 +115,9 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                     ),
                     style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
@@ -135,9 +133,9 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF013871),
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),

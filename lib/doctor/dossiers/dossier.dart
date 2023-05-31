@@ -14,6 +14,7 @@ class _MedicalDocumentState extends State<MedicalDocument> {
   TextEditingController genderController = TextEditingController();
   TextEditingController phoneController = TextEditingController(text: '+216');
   TextEditingController emailController = TextEditingController();
+  TextEditingController CnamController = TextEditingController();
   TextEditingController symptomsController = TextEditingController();
 
   void _createMedicalRecord() {
@@ -121,6 +122,15 @@ class _MedicalDocumentState extends State<MedicalDocument> {
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.email),
                   labelText: 'Email@gmail.com',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: CnamController,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.numbers),
+                  labelText: 'Num CNAM',
                   border: OutlineInputBorder(),
                 ),
               ),

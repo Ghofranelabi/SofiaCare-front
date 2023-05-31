@@ -38,7 +38,7 @@ class _SofiaState extends State<Sofia> {
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
                 "Sofiacare",
-                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, color: Color(0xFF013871)),
               ),
             ),
             Padding(
@@ -68,7 +68,7 @@ class _SofiaState extends State<Sofia> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(38.0),
-                    color: Color(0xff132137),
+                    color: Color(0xFF013871),
                   ),
                   child: Text(
                     "Continuer",

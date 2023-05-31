@@ -77,7 +77,7 @@ class RendezVous extends StatelessWidget {
                 position: _relaxAnimation,
                 child: Text(
                   "Rendez vous",
-                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold , color: Color(0xFF013871),),
                 ),
               ),
               SlideTransition(

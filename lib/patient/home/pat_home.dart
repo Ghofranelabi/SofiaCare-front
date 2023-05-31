@@ -35,14 +35,14 @@ class _PatHomeState extends State<PatHome> {
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
           child: GNav(
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
             activeColor: Color(0xFF013871),
-            iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            iconSize: 15,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[800]!,
             color: Colors.black,

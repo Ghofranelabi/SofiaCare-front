@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
+import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 import 'package:sofiacare/utils/config.dart';
 
 import 'home/doc_home.dart';
@@ -41,14 +42,14 @@ class AppointmentList extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
           child: GNav(
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
             activeColor: Color(0xFF013871),
-            iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            iconSize: 15,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[800]!,
             color: Colors.black,
@@ -89,7 +90,10 @@ class AppointmentList extends StatelessWidget {
                 );
                 
               } else if (index == 3) {
-                
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DoctorSettings()),
+                );
               }
             },
           ),

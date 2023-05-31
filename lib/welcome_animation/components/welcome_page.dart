@@ -77,7 +77,7 @@ class CenterNextButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
                         8 + 32 * (1 - _RegisterMoveAnimation.value)),
-                    color: Color(0xff132137),
+                    color: Color(0xFF013871),
                   ),
                   child: PageTransitionSwitcher(
                     duration: Duration(milliseconds: 480),
@@ -161,7 +161,7 @@ class CenterNextButton extends StatelessWidget {
                     child: Text(
                       'connexion',
                       style: TextStyle(
-                        color: Color(0xff132137),
+                        color: Color(0xFF013871),
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),

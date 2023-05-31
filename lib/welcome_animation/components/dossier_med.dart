@@ -99,7 +99,7 @@ class DossierMed extends StatelessWidget {
                   child: Text(
                     "Dossier médical",
                     style:
-                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold, color: Color(0xFF013871)),
                   ),
                 ),
               ),

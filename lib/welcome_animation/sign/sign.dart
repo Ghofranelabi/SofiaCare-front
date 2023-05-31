@@ -50,7 +50,7 @@ class _SignState extends State<Sign> {
           body: Column(
   children: [
     SizedBox(
-      height: 200, // Adjust the height as per your requirement
+      height: 100, // Adjust the height as per your requirement
       width: double.infinity,
       child: Container(
         child: Image.asset(

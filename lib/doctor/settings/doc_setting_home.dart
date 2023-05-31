@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:sofiacare/doctor/appointments_list.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
+import 'package:sofiacare/doctor/home/doc_home.dart';
 import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
@@ -7,13 +10,12 @@ import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/settings/fav_doc.dart';
 import 'package:sofiacare/views/sign/sign.dart';
 
-class SettingsScreen extends StatefulWidget {
+class DoctorSettings extends StatefulWidget {
   @override
-  _SettingsScreenState createState() => _SettingsScreenState();
+  _DoctorSettingsState createState() => _DoctorSettingsState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
-  // ignore: unused_field
+class _DoctorSettingsState extends State<DoctorSettings> {
   int _selectedIndex = 3;
 
   @override
@@ -29,12 +31,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage('assets/images/patien1.jpg'),
+                backgroundImage: AssetImage('assets/images/doctor1.jpg'),
                 backgroundColor: Colors.white, // Set a border color
               ),
               SizedBox(height: 8),
               Text(
-                "Ghofrane Labidi",
+                "Dr. John Doe",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -56,7 +58,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: bColor,
+                color: Colors.black,
               ),
             ),
             onTap: () {
@@ -68,31 +70,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text(
-              "Médecins favoris",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: bColor,
-              ),
-            ),
-            onTap: () {
-              // Navigate to the favorite doctors screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FavoriteDoctors()),
-              );
-            },
-          ),
-          ListTile(
             leading: Icon(Icons.logout),
             title: Text(
               "Déconnecter",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: bColor,
+                color: Colors.black,
               ),
             ),
             onTap: () {
@@ -174,39 +158,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 text: 'Paramètres',
               ),
             ],
-            selectedIndex: 3,
+            selectedIndex: _selectedIndex,
             onTabChange: (index) {
               if (index == 0) {
                 // Navigate to PatHome
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PatHome()),
+                  MaterialPageRoute(builder: (context) => DoctorHome()),
                 );
               } else if (index == 1) {
                 // Navigate to SearchScreen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                  MaterialPageRoute(builder: (context) => FileHome()),
                 );
               } else if (index == 2) {
-                // Navigate to NotificationAppoint
+                // Navigate to AppointmentList
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => NotificationAppoint(),
-                  ),
+                  MaterialPageRoute(builder: (context) => AppointmentList()),
                 );
               } else if (index == 3) {
-                // Navigate to SettingScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingsScreen()),
-                );
-              } else {
-                setState(() {
-                  _selectedIndex = index;
-                });
+                // Navigate to DoctorSettings (current screen)
               }
+              setState(() {
+                _selectedIndex = index;
+              });
             },
           ),
         ),
@@ -227,6 +204,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: DoctorSettings(),
     );
   }
 }

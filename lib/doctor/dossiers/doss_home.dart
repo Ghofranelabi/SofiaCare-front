@@ -3,9 +3,9 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 
-import '../../settings/fav_doc.dart';
-import '../../tools/colors.dart';
+
 
 
 class FileHome extends StatefulWidget {
@@ -58,10 +58,7 @@ class _FileHomeState extends State<FileHome> {
             ),
             onTap: () {
               // Navigate to the favorite doctors screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FavoriteDoctors()),
-              );
+             
             },
           ),
          
@@ -69,14 +66,14 @@ class _FileHomeState extends State<FileHome> {
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
           child: GNav(
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
             activeColor: Color(0xFF013871),
-            iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            iconSize: 15,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[800]!,
             color: Colors.black,
@@ -117,7 +114,10 @@ class _FileHomeState extends State<FileHome> {
                 );
                 
               } else if (index == 3) {
-                
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DoctorSettings()),
+                );
               }
             },
           ),

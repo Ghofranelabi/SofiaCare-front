@@ -10,15 +10,6 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFF013871),
-      leading: IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SearchScreen()),
-          );
-        },
-      ),
       elevation: 0,
       actions: [
         Container(

@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/patient/home/pat_home.dart';
+
+import '../../model/api_response.dart';
+import '../../model/user.dart';
+import '../../services/user_service.dart';
 
 enum UserRole { patient, doctor }
 
@@ -19,8 +26,34 @@ class _RegisterState extends State<Register> {
   bool loading = false;
   UserRole? userRole = UserRole.patient;
 
-  void _register() {
-    // Perform registration logic here
+  void _register() async {
+    ApiResponse response = await register(
+        nomController.text,
+        emailController.text,
+        passwordController.text,
+        userRole == UserRole.patient ? 'patient' : 'doctor');
+    if (response.error == null) {
+      _saveAndRedirectToHome(response.data as User);
+    } else {
+      setState(() {
+        if (mounted) loading = false;
+      });
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('${response.error}')));
+    }
+  }
+
+  void _saveAndRedirectToHome(User user) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    if (userRole == UserRole.doctor) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => DoctorHome()),
+          (route) => false);
+    } else {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => PatHome()),
+          (route) => false);
+    }
   }
 
   @override
@@ -102,7 +135,13 @@ class _RegisterState extends State<Register> {
                   children: [
                     Expanded(
                       child: ListTile(
-                        title: const Text('Patient'),
+                        title: const Text(
+                          'Patient',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         leading: Radio<UserRole>(
                           value: UserRole.patient,
                           groupValue: userRole,
@@ -116,7 +155,13 @@ class _RegisterState extends State<Register> {
                     ),
                     Expanded(
                       child: ListTile(
-                        title: const Text('Docteur'),
+                        title: const Text(
+                          'Docteur',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         leading: Radio<UserRole>(
                           value: UserRole.doctor,
                           groupValue: userRole,
@@ -133,6 +178,8 @@ class _RegisterState extends State<Register> {
                 SizedBox(height: 15),
                 if (userRole == UserRole.doctor) ...[
                   TextFormField(
+                    validator: (val) =>
+                        val!.isEmpty ? 'Diplômes et formations required' : null,
                     decoration: InputDecoration(
                       labelText: 'Diplômes et formations',
                       contentPadding: EdgeInsets.all(10),
@@ -144,6 +191,7 @@ class _RegisterState extends State<Register> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
+                    validator: (val) => val!.isEmpty ? 'Adresse required' : null,
                     decoration: InputDecoration(
                       labelText: 'Adresse',
                       contentPadding: EdgeInsets.all(10),
@@ -156,6 +204,8 @@ class _RegisterState extends State<Register> {
                   SizedBox(height: 10),
                   TextFormField(
                     controller: phoneNumberController,
+                    validator: (val) =>
+                        val!.isEmpty ? 'Numéro de téléphone required' : null,
                     decoration: InputDecoration(
                       labelText: 'Numéro de téléphone',
                       contentPadding: EdgeInsets.all(10),

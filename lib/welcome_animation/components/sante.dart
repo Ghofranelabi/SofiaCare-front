@@ -81,7 +81,7 @@ class SanteVew extends StatelessWidget {
             children: [
               Text(
                 "Votre santé de la famille",
-                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold, color: Color(0xFF013871)),
               ),
               SlideTransition(
                 position: _moodFirstHalfAnimation,
