@@ -1,7 +1,8 @@
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:sofiacare/views/sign/sign.dart';
+
+import '../sign/sign.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;

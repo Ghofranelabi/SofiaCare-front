@@ -3,12 +3,9 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
-import 'package:sofiacare/patient/home/notification_appoint.dart';
-import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
-import 'package:sofiacare/settings/fav_doc.dart';
-import 'package:sofiacare/views/sign/sign.dart';
+
+import '../../welcome_animation/sign/sign.dart';
 
 class DoctorSettings extends StatefulWidget {
   @override

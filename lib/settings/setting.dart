@@ -5,7 +5,8 @@ import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/settings/fav_doc.dart';
-import 'package:sofiacare/views/sign/sign.dart';
+
+import '../welcome_animation/sign/sign.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override

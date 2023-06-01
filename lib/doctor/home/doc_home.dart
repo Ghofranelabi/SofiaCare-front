@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
-import 'package:sofiacare/doctor/dossiers/dossier.dart';
 import 'package:sofiacare/doctor/home/Doctorques.dart';
 import 'package:sofiacare/doctor/home/appointment_card.dart';
 import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 import 'package:sofiacare/patient/home/new_post.dart';
 import '../../utils/config.dart';
-import 'package:sofiacare/tools/colors.dart';
 
 class DoctorHome extends StatelessWidget {
   @override

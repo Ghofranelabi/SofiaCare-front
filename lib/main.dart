@@ -1,7 +1,7 @@
 // ignore: unused_import
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
-import 'package:sofiacare/patient/home/search_screen.dart';
+import 'package:sofiacare/patient/home/speciality.dart';
 
 
 // ignore: unused_import
@@ -13,7 +13,6 @@ import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // ignore: unused_import
-import 'package:sofiacare/views/sign/sign.dart';
 
 
 //import 'package:flutter/foundation.dart' show kIsWeb;
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
         debugShowCheckedModeBanner: false,
-         home:DoctorHome());
+         home:Speciality());
   }
 }
 

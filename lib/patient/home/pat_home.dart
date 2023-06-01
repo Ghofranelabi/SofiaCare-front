@@ -6,7 +6,8 @@ import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/posts.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/setting.dart';
-import 'package:sofiacare/views/patient/home/app_bar.dart';
+
+import '../../widgets/buttons/app_bar.dart';
 
 class PatHome extends StatefulWidget {
   const PatHome({Key? key});
