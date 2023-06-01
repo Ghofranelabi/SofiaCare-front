@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/doctor/settings/changepassword.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 
 import '../../welcome_animation/sign/sign.dart';
@@ -63,6 +64,25 @@ class _DoctorSettingsState extends State<DoctorSettings> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => EditProfile()),
+              );
+            },
+          ),
+           ListTile(
+            leading: Icon(
+              Icons.key,
+            ),
+            title: Text(
+              "Changer mot de passe",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DocChangePasswordScreen()),
               );
             },
           ),

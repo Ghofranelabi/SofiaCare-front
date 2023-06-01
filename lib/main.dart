@@ -1,8 +1,7 @@
 // ignore: unused_import
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
-import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/doctor/settings/changepassword.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
-import 'package:sofiacare/patient/home/speciality.dart';
 
 
 // ignore: unused_import

@@ -207,14 +207,13 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       child: InkWell(
                        onTap: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (BuildContext context) => Speciality(),
-    ),
-  );
-},
-
+                       Navigator.push(
+                          context,
+                      MaterialPageRoute(
+                         builder: (BuildContext context) => Speciality(),
+                         ),
+                        );
+                      },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

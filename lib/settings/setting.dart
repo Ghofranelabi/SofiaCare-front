@@ -87,6 +87,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.key),
+            title: Text(
+              "Changer mot de passe",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: bColor,
+              ),
+            ),
+            onTap: () {Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
+              );}
+          ),
+          ListTile(
             leading: Icon(Icons.logout),
             title: Text(
               "Déconnecter",
