@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sofiacare/patient/home/speciality.dart';
 
 import 'package:sofiacare/settings/setting.dart';
 
@@ -164,25 +165,24 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                         trailing: PopupMenuButton<String>(
-  icon: Icon(
-    Icons.filter_list,
-    color: pColor,
-  ),
-  itemBuilder: (BuildContext context) {
-    return tunisiaCities.map((String city) {
-      return PopupMenuItem<String>(
-        value: city,
-        child: Text(city),
-      );
-    }).toList();
-  },
-  onSelected: (String selectedCity) {
-    // Handle the selected city
-    print('Selected city: $selectedCity');
-    // Add your logic to handle the selected city
-  },
-),
-
+                          icon: Icon(
+                            Icons.filter_list,
+                            color: pColor,
+                          ),
+                          itemBuilder: (BuildContext context) {
+                            return tunisiaCities.map((String city) {
+                              return PopupMenuItem<String>(
+                                value: city,
+                                child: Text(city),
+                              );
+                            }).toList();
+                          },
+                          onSelected: (String selectedCity) {
+                            // Handle the selected city
+                            print('Selected city: $selectedCity');
+                            // Add your logic to handle the selected city
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -206,7 +206,15 @@ class _SearchScreenState extends State<SearchScreen> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: InkWell(
-                        onTap: () {},
+                       onTap: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (BuildContext context) => Speciality(),
+    ),
+  );
+},
+
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -242,16 +250,27 @@ class _SearchScreenState extends State<SearchScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
-          child: GNav(
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            ),
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child:  GNav(
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
             activeColor: Color(0xFF013871),
             iconSize: 15,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[800]!,
             color: Colors.black,
@@ -281,7 +300,10 @@ class _SearchScreenState extends State<SearchScreen> {
                   MaterialPageRoute(builder: (context) => PatHome()),
                 );
               } else if (index == 1) {
-                // we are in it already
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
               } else if (index == 2) {
                 Navigator.push(
                   context,
@@ -294,6 +316,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 );
               }
             },
+          ),
           ),
         ),
       ),

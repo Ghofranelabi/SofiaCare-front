@@ -24,7 +24,7 @@ class DoctorHome extends StatelessWidget {
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const <Widget>[
+                  children: <Widget>[
                     Text(
                       "Dr.Labidi",
                       style: TextStyle(
@@ -35,8 +35,16 @@ class DoctorHome extends StatelessWidget {
                     SizedBox(
                       width: 30,
                       height: 30,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/doctor1.jpg"),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DoctorSettings()),
+                          );
+                        },
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/doctor1.jpg"),
+                        ),
                       ),
                     ),
                   ],
@@ -116,7 +124,7 @@ class DoctorHome extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.file_copy,
-                text: 'Dossiers ',
+                text: 'Dossiers',
               ),
               GButton(
                 icon: Icons.calendar_month,

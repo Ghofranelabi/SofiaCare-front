@@ -143,8 +143,8 @@ class _DoctorSettingsState extends State<DoctorSettings> {
                 text: 'Accueil',
               ),
               GButton(
-                icon: Icons.search,
-                text: 'Recherche',
+                icon: Icons.file_copy,
+                text: 'Dossiers',
               ),
               GButton(
                 icon: Icons.calendar_month,
@@ -155,7 +155,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
                 text: 'Paramètres',
               ),
             ],
-            selectedIndex: _selectedIndex,
+            selectedIndex: 3,
             onTabChange: (index) {
               if (index == 0) {
                 // Navigate to PatHome

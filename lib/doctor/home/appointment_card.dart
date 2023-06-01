@@ -58,35 +58,7 @@ class _AppointmentCardState extends State<AppointCard> {
               Config.spaceSmall,
               const ScheduleCard(),
               Config.spaceSmall,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                      ),
-                      child: const Text(
-                        "Rapporter",
-                        style: TextStyle(color: wColor),
-                      ),
-                      onPressed: () {},
-                    ),
-                    ),
-                    Expanded(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                      child: const Text(
-                        "Accepter",
-                        style: TextStyle(color: wColor),
-                      ),
-                      onPressed: () {},
-                    ),
-                    ),
-                ],
-              ),
+              
             ],
           ),
         ),

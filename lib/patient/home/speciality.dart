@@ -4,6 +4,7 @@ import 'package:sofiacare/patient/home/search_screen.dart';
 import '../profile/doc_profile.dart';
 
 class Speciality extends StatefulWidget {
+  
   @override
   _SpecialityState createState() => _SpecialityState();
 }
@@ -24,20 +25,14 @@ class _SpecialityState extends State<Speciality> {
           );
         },
       ),
-        title: Text('Doctor Section'),
+        title: Text('Liste des spécialistes'),
       ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Liste des médecins',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            
             SizedBox(height: 16),
             Expanded(
               child: ListView.builder(

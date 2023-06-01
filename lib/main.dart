@@ -1,6 +1,7 @@
 // ignore: unused_import
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
+import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/patient/home/speciality.dart';
 
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
         debugShowCheckedModeBanner: false,
-         home:Speciality());
+         home:SearchScreen());
   }
 }
 
