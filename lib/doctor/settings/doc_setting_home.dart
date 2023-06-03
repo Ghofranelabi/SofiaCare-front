@@ -187,7 +187,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
                 // Navigate to SearchScreen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FileHome()),
+                  MaterialPageRoute(builder: (context) => DossierHome()),
                 );
               } else if (index == 2) {
                 // Navigate to AppointmentList

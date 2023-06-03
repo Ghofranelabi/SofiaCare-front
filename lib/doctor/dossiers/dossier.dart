@@ -33,7 +33,7 @@ class _MedicalDocumentState extends State<MedicalDocument> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => FileHome(), // Navigate to DoctorHome
+                builder: (context) => DossierHome(), // Navigate to DoctorHome
               ),
             );
           },

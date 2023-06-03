@@ -1,12 +1,6 @@
 // ignore: unused_import
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
-import 'package:sofiacare/doctor/dossiers/dossier_perso.dart';
-import 'package:sofiacare/doctor/home/doc_home.dart';
-import 'package:sofiacare/patient/home/pat_home.dart';
-import 'package:sofiacare/patient/profile/appoint_screen.dart';
-import 'package:sofiacare/patient/profile/doc_profile.dart';
-import 'package:sofiacare/patient/profile/presentation.dart';
-import 'package:sofiacare/settings/fav_doc.dart';
+import 'package:sofiacare/doctor/dossiers/dossier_list.dart';
 
 
 
@@ -46,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
         debugShowCheckedModeBanner: false,
-         home:DoctorHome());
+         home:DossierList());
   }
 }
 

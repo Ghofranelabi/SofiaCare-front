@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
-import 'dart:io';
 
 class DossierPerso extends StatefulWidget {
   @override
@@ -121,7 +120,7 @@ class _DossierPersoState extends State<DossierPerso> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => FileHome(), // Navigate to DoctorHome
+                builder: (context) => DossierHome(), // Navigate to DoctorHome
               ),
             );
           },

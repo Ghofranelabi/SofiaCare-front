@@ -81,7 +81,7 @@ class AppointmentList extends StatelessWidget {
               } else if (index == 1) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FileHome()),
+                  MaterialPageRoute(builder: (context) => DossierHome()),
                 );
               } else if (index == 2) {
                 Navigator.push(

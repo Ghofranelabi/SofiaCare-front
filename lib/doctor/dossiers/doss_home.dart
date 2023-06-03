@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/dossier.dart';
+import 'package:sofiacare/doctor/dossiers/dossier_list.dart';
+import 'package:sofiacare/doctor/dossiers/dossier_perso.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
 import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 
 
 
 
-class FileHome extends StatefulWidget {
+class DossierHome extends StatefulWidget {
   @override
-  _FileHomeState createState() => _FileHomeState();
+  _DossierHomeState createState() => _DossierHomeState();
 }
 
-class _FileHomeState extends State<FileHome> {
+class _DossierHomeState extends State<DossierHome> {
   // ignore: unused_field
   int _selectedIndex = 3;
 
@@ -57,7 +59,10 @@ class _FileHomeState extends State<FileHome> {
               ),
             ),
             onTap: () {
-              // Navigate to the favorite doctors screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DossierList()),
+              );
              
             },
           ),
@@ -105,7 +110,7 @@ class _FileHomeState extends State<FileHome> {
               } else if (index == 1) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FileHome()),
+                  MaterialPageRoute(builder: (context) => DossierHome()),
                 );
               } else if (index == 2) {
                 Navigator.push(

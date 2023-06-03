@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 import 'package:sofiacare/settings/setting.dart';
 
 class PatChangePasswordScreen extends StatelessWidget {
