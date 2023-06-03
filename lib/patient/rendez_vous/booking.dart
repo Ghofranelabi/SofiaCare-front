@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sofiacare/patient/rendez_vous/validate.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Booking extends StatefulWidget {
@@ -101,7 +102,7 @@ class _BookingState extends State<Booking> {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         Wrap(
-          spacing: 12.0, 
+          spacing: 12.0,
           children: availableHours.map((hour) {
             final isAvailable = !unavailableHours.contains(hour);
             final isSelected = selectedHours.contains(hour);
@@ -141,6 +142,21 @@ class _BookingState extends State<Booking> {
               ),
             );
           }).toList(),
+        ),
+        SizedBox(height: 30),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => Validate(),
+              ),
+            );
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF013871)),
+          ),
+          child: Text('Valider le rendez-vous'),
         ),
       ],
     );

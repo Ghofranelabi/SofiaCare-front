@@ -99,7 +99,6 @@ class _EditProfileState extends State<EditProfile> {
                 height: 30,
               ),
               buildTextField("Nom Complet", "Ghofrane", false),
-              buildTextField("Mot de passe", "******", true),
               buildTextField("Adresse", "Bizerte", false),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

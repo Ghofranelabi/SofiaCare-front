@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
 
@@ -16,13 +14,19 @@ class PquestionAnswer extends StatefulWidget {
 }
 
 class _PQuestionAnswerState extends State<PquestionAnswer> {
-  List<bool> isExpandedList = [false, false, false];
+  List<bool> isExpandedList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    isExpandedList = List<bool>.filled(widget.imgs.length, false);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: 4,
+        itemCount: widget.imgs.length,
         itemBuilder: (context, index) {
           return Container(
             margin: EdgeInsets.all(10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
+import 'package:sofiacare/doctor/dossiers/dossier_perso.dart';
 
 class MedicalDocument extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _MedicalDocumentState extends State<MedicalDocument> {
   TextEditingController emailController = TextEditingController();
   TextEditingController CnamController = TextEditingController();
   TextEditingController symptomsController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   void _createMedicalRecord() {
     // Logic to create the medical record goes here
@@ -169,34 +171,38 @@ class _MedicalDocumentState extends State<MedicalDocument> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: descriptionController,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.description),
+                  labelText: 'Description',
+                  border: OutlineInputBorder(),
+                ),
+              ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _createMedicalRecord,
-                child: Text('Créer une fiche perso'),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        return Color(0xFF013871); // Color when the button is pressed
-                      }
-                      return Colors.blue; // Default color of the button
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(width: 10),
-              CircleAvatar(
-                backgroundColor: Colors.grey[200],
-                child: IconButton(
-                  icon: Icon(
-                    Icons.camera_alt,
-                    color: Color(0xFF013871),
-                  ),
-                  onPressed: () {
-                    // Logic to open camera goes here
-                  },
-                ),
-              ),
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DossierPerso(),
+      ),
+    );
+  },
+  child: Text('Créer une fiche perso'),
+  style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.pressed)) {
+          return Color(0xFF013871); // Color when the button is pressed
+        }
+        return Colors.blue; // Default color of the button
+      },
+    ),
+  ),
+),
+
             ],
           ),
         ),

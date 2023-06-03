@@ -251,7 +251,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xFFD9E4EE),
           boxShadow: [
             BoxShadow(
               blurRadius: 20,

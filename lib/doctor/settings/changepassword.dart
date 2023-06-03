@@ -50,7 +50,7 @@ ElevatedButton(
   style: ButtonStyle(
     backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF013871)),
   ),
-  child: Text('Modifier'),
+  child: Text('Changer le mot de passe '),
 ),
 
           ],

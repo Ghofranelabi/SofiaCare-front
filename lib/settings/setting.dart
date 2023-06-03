@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
+import 'package:sofiacare/settings/changepass.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 import 'package:sofiacare/settings/fav_doc.dart';
 
@@ -98,7 +99,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             onTap: () {Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SettingsScreen()),
+                MaterialPageRoute(builder: (context) => PatChangePasswordScreen()),
               );}
           ),
           ListTile(

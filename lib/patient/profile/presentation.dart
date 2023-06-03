@@ -104,7 +104,7 @@ class _PresentationState extends State<Presentation> {
             child: Align(
               alignment: Alignment.topLeft,
               child: Image.asset(
-                'assets/images/cnam.jpg',
+                'assets/images/cnam.png',
                 fit: BoxFit.fill,
               ),
             ),
