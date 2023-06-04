@@ -67,12 +67,36 @@ class _DoctorSettingsState extends State<DoctorSettings> {
               );
             },
           ),
-           ListTile(
+          Container(
+            color: Color.fromARGB(255, 191, 204,
+                219), // Set the background color of the container
+            child: ListTile(
+              leading: Icon(
+                Icons.key,
+              ),
+              title: Text(
+                "Changer mot de passe",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DocChangePasswordScreen()),
+                );
+              },
+            ),
+          ),
+          ListTile(
             leading: Icon(
-              Icons.key,
+              Icons.calendar_today,
             ),
             title: Text(
-              "Changer mot de passe",
+              "Diponibilités",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -82,7 +106,8 @@ class _DoctorSettingsState extends State<DoctorSettings> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DocChangePasswordScreen()),
+                MaterialPageRoute(
+                    builder: (context) => DocChangePasswordScreen()),
               );
             },
           ),

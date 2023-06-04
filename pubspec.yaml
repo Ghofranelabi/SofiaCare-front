@@ -42,8 +42,7 @@ dependencies:
   rating_dialog: ^2.0.4
   flutter_svg: ^2.0.5
   url_launcher: ^6.0.0
-  dio: ^4.0.6
-  provider: ^6.0.4
+  calendar_timeline: ^0.2.1  
   
 dev_dependencies:
   flutter_test:

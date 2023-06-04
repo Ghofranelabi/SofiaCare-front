@@ -1,33 +1,11 @@
-// ignore: unused_import
-import 'package:sofiacare/doctor/dossiers/dossier.dart';
-import 'package:sofiacare/doctor/dossiers/dossier_list.dart';
-
-
-
-// ignore: unused_import
-import 'package:sofiacare/settings/setting.dart';
-// ignore: unused_import
-import 'package:sofiacare/welcome_animation/components/welcome_view.dart';
-// ignore: unused_import
-import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// ignore: unused_import
+import 'package:sofiacare/doctor/settings/doc_disponibilities.dart';
 
-
-//import 'package:flutter/foundation.dart' show kIsWeb;
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
-  ]).then((_) => runApp(MyApp()));
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static var navigatorKey;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,8 +17,9 @@ class MyApp extends StatelessWidget {
           color: Color(0xFF013871), // Set the app bar color
         ),
       ),
-        debugShowCheckedModeBanner: false,
-         home:DossierList());
+      debugShowCheckedModeBanner: false,
+      home: DoctorDisponibilities(),
+    );
   }
 }
 
