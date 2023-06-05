@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 //STINGS--------------
-//const baseURL = 'http://10.0.2.2:8000/api';
-const baseURL = 'http://192.168.200.124:8000/api';
+const baseURL = 'http://10.0.2.2:8000/api';
+//const baseURL = 'http://192.168.200.124:8000/api';
 const loginURL = baseURL + '/auth/login';
 const registerURL = baseURL + '/auth/register';
 const logoutURL = baseURL + '/auth/logout';
@@ -11,7 +11,13 @@ const valideCodeUrl = baseURL + '/auth/update_pass';
 const updateUrl = baseURL + '/update_pass';
 const userURL = baseURL + '/users';
 const postsURL = baseURL + '/posts';
-const commentsURL = baseURL + '/comments';
+const commentURL = baseURL + '/comment';
+const likeURL = baseURL + '/like';
+const questionURL = baseURL + '/question';
+const responseURL = baseURL + '/response';
+
+
+
 
 //ERRORS-----------
 const serverError = 'Server error';

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
+import 'package:sofiacare/doctor/dossiers/dossier_perso.dart';
+import 'package:sofiacare/doctor/home/doc_home.dart';
 import 'package:sofiacare/doctor/settings/doc_disponibilities.dart';
+import 'package:sofiacare/patient/home/pat_home.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +22,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: DoctorDisponibilities(),
+      home: PatHome(),
     );
   }
 }
