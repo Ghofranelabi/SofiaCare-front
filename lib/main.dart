@@ -4,6 +4,7 @@ import 'package:sofiacare/doctor/dossiers/dossier_perso.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
 import 'package:sofiacare/doctor/settings/doc_disponibilities.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
+import 'package:sofiacare/patient/profile/doc_profile.dart';
 import 'package:sofiacare/welcome_animation/introduction_animation_screen.dart';
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home:DoctorHome(),
+      home:PatHome(),
     );
   }
 }

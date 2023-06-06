@@ -138,7 +138,7 @@ class _PresentationState extends State<Presentation> {
                   Text(
                     "Rue 1 er Mai (à cote du Tunisie Télécom) Premier étage ",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: bColor.withOpacity(0.5),
                     ),
@@ -200,7 +200,7 @@ class _PresentationState extends State<Presentation> {
 ),
 Spacer(),
 
-SizedBox(height: 100),
+SizedBox(height: 30),
             Padding(
                   padding: const EdgeInsets.symmetric(
         horizontal: 20.0,

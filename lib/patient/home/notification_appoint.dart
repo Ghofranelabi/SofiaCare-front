@@ -5,16 +5,20 @@ import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/utils/config.dart';
 
-class NotificationAppoint extends StatelessWidget {
-  final List<String> imgs = [
+class NotificationAppoint extends StatefulWidget {
+  @override
+  _NotificationAppointState createState() => _NotificationAppointState();
+}
+
+class _NotificationAppointState extends State<NotificationAppoint> {
+  List<String> imgs = [
     "doctor1.jpg",
     "doctor2.jpg",
     "doctor3.jpg",
     "doctor4.jpg",
   ];
 
-  // ignore: unused_field
-  int _selectedIndex = 2; // Set the initial selected index to 2 for "Rendez-vous"
+  int _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class NotificationAppoint extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Use pop to go back to the previous screen
+            Navigator.pop(context);
           },
         ),
       ),
@@ -36,19 +40,23 @@ class NotificationAppoint extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: AppointmentCard(
               img: imgs[index],
+              onDelete: () {
+                setState(() {
+                  imgs.removeAt(index);
+                });
+              },
             ),
           );
         },
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: GNav(
-            rippleColor: Colors.grey[300]!,
-            hoverColor: Colors.grey[100]!,
+
             gap: 8,
             activeColor: Color(0xFF013871),
-            iconSize: 15,
+            iconSize: 25,
             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[800]!,
@@ -56,22 +64,18 @@ class NotificationAppoint extends StatelessWidget {
             tabs: [
               GButton(
                 icon: Icons.home,
-                text: 'Accueil',
               ),
               GButton(
                 icon: Icons.search,
-                text: 'Recherche',
               ),
               GButton(
                 icon: Icons.calendar_month,
-                text: 'Rendez-vous',
               ),
               GButton(
                 icon: Icons.settings,
-                text: 'Paramètres',
               ),
             ],
-            selectedIndex: 2,
+            selectedIndex: _selectedIndex,
             onTabChange: (index) {
               if (index == 0) {
                 Navigator.push(
@@ -104,8 +108,12 @@ class NotificationAppoint extends StatelessWidget {
 
 class AppointmentCard extends StatefulWidget {
   final String img;
+  final VoidCallback onDelete;
 
-  const AppointmentCard({required this.img}) : super();
+  const AppointmentCard({
+    required this.img,
+    required this.onDelete,
+  }) : super();
 
   @override
   _AppointmentCardState createState() => _AppointmentCardState();
@@ -113,6 +121,8 @@ class AppointmentCard extends StatefulWidget {
 
 class _AppointmentCardState extends State<AppointmentCard> {
   bool isAccepted = true;
+  String _appointmentDate = "Lundi, 11/02/2023";
+  String _appointmentTime = "14:00";
 
   @override
   Widget build(BuildContext context) {
@@ -157,34 +167,27 @@ class _AppointmentCardState extends State<AppointmentCard> {
                     ],
                   ),
                   Spacer(),
-                  
-                ],
-              ),
-              Config.spaceSmall,
-              ScheduleCard(),
-              Config.spaceSmall,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
                   IconButton(
                     onPressed: () {
-                      // Modify appointment logic
-                    },
-                    icon: Icon(
-                      Icons.edit,
-                      color: Colors.white,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      // Delete appointment logic
+                      widget.onDelete(); // Delete the appointment card on button press
                     },
                     icon: Icon(
                       Icons.delete,
-                      color: Colors.white,
+                      color: Colors.red,
                     ),
                   ),
                 ],
+              ),
+              Config.spaceSmall,
+              ScheduleCard(
+                appointmentDate: _appointmentDate,
+                appointmentTime: _appointmentTime,
+                onUpdateDateTime: (newDate, newTime) {
+                  setState(() {
+                    _appointmentDate = newDate;
+                    _appointmentTime = newTime;
+                  });
+                },
               ),
             ],
           ),
@@ -195,7 +198,59 @@ class _AppointmentCardState extends State<AppointmentCard> {
 }
 
 class ScheduleCard extends StatelessWidget {
-  const ScheduleCard({Key? key}) : super(key: key);
+  final String appointmentDate;
+  final String appointmentTime;
+  final Function(String, String) onUpdateDateTime;
+
+  const ScheduleCard({
+    required this.appointmentDate,
+    required this.appointmentTime,
+    required this.onUpdateDateTime,
+  }) : super();
+
+  Future<void> _showEditDialog(BuildContext context) async {
+    final selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2100),
+    );
+
+    if (selectedDate != null) {
+      final newDate = "${_getDayOfWeek(selectedDate.weekday)}, ${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
+
+      final selectedTime = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.now(),
+      );
+
+      if (selectedTime != null) {
+        final newTime = selectedTime.format(context);
+        onUpdateDateTime(newDate, newTime);
+      }
+    }
+  }
+
+  String _getDayOfWeek(int day) {
+    switch (day) {
+      case 1:
+        return "Lundi";
+      case 2:
+        return "Mardi";
+      case 3:
+        return "Mercredi";
+      case 4:
+        return "Jeudi";
+      case 5:
+        return "Vendredi";
+      case 6:
+        return "Samedi";
+      case 7:
+        return "Dimanche";
+      default:
+        return "";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +271,7 @@ class ScheduleCard extends StatelessWidget {
           ),
           const SizedBox(width: 5),
           Text(
-            "Lundi, 11/02/2023",
+            appointmentDate,
             style: TextStyle(
               color: Colors.white,
             ),
@@ -230,10 +285,19 @@ class ScheduleCard extends StatelessWidget {
           const SizedBox(width: 5),
           Flexible(
             child: Text(
-              "14:00",
+              appointmentTime,
               style: TextStyle(
                 color: Colors.white,
               ),
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              _showEditDialog(context); // Show the edit dialog on button press
+            },
+            icon: Icon(
+              Icons.edit,
+              color: Colors.white,
             ),
           ),
         ],
