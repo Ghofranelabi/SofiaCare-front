@@ -1,12 +1,9 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/patient/home/pat_home.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/utils/config.dart';
-
 
 class NotificationAppoint extends StatelessWidget {
   final List<String> imgs = [
@@ -160,16 +157,35 @@ class _AppointmentCardState extends State<AppointmentCard> {
                     ],
                   ),
                   Spacer(),
-                  if (isAccepted)
-                    Icon(
-                      Icons.check,
-                      color: Colors.green,
-                      size: 20,
-                    ),
+                  
                 ],
               ),
               Config.spaceSmall,
               ScheduleCard(),
+              Config.spaceSmall,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      // Modify appointment logic
+                    },
+                    icon: Icon(
+                      Icons.edit,
+                      color: Colors.white,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // Delete appointment logic
+                    },
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

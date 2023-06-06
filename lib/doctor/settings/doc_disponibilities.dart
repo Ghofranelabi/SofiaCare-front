@@ -80,13 +80,12 @@ class _DoctorDisponibilitiesState extends State<DoctorDisponibilities> {
             ),
             SizedBox(height: 32.0),
 Container(
-  color: Color(0xFF013871),
   child: Text(
     'Sélectionnez les heures :',
     style: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Color(0xFF013871),
     ),
   ),
 ),

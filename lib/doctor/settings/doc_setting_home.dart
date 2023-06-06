@@ -4,6 +4,7 @@ import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
 import 'package:sofiacare/doctor/settings/changepassword.dart';
+import 'package:sofiacare/doctor/settings/doc_disponibilities.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 
 import '../../welcome_animation/sign/sign.dart';
@@ -68,8 +69,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
             },
           ),
           Container(
-            color: Color.fromARGB(255, 191, 204,
-                219), // Set the background color of the container
+        
             child: ListTile(
               leading: Icon(
                 Icons.key,
@@ -107,7 +107,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => DocChangePasswordScreen()),
+                    builder: (context) => DoctorDisponibilities()),
               );
             },
           ),
