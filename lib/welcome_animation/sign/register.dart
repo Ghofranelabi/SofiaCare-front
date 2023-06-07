@@ -25,6 +25,7 @@ class _RegisterState extends State<Register> {
   TextEditingController phoneNumberController = TextEditingController(text: '+216');
   bool loading = false;
   UserRole? userRole = UserRole.patient;
+  bool? _isChecked = false;
 
   void _register() async {
     ApiResponse response = await register(
@@ -54,6 +55,26 @@ class _RegisterState extends State<Register> {
           MaterialPageRoute(builder: (context) => PatHome()),
           (route) => false);
     }
+  }
+
+  void _showValidationPopup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Validation'),
+          content: Text('Your email has been successfully validated.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -215,6 +236,27 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: CheckboxListTile(
+                      title: const Text(
+                        "J'accepte les termes et les conditions",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 15, 85, 142),
+                        ),
+                      ),
+                      value: _isChecked,
+                      onChanged: (bool? newValue) {
+                        setState(() {
+                          _isChecked = newValue;
+                        });
+                      },
+                      activeColor: Color(0xFF013871),
+                      checkColor: Colors.white,
+                      controlAffinity: ListTileControlAffinity.leading,
+                    ),
+                  ),
                   SizedBox(height: 15),
                 ],
                 loading
@@ -227,6 +269,7 @@ class _RegisterState extends State<Register> {
                             setState(() {
                               loading = true;
                               _register();
+                              _showValidationPopup(); // Call the function to show the validation popup
                             });
                           }
                         },

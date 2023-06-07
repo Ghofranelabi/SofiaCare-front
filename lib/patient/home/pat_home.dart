@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:sofiacare/patient/home/app_bar.dart';
 import 'package:sofiacare/patient/home/notification_appoint.dart';
 import 'package:sofiacare/patient/home/posts.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
 import 'package:sofiacare/settings/setting.dart';
-
-import '../../widgets/buttons/app_bar.dart';
 
 
 class PatHome extends StatefulWidget {
@@ -27,7 +26,7 @@ class _PatHomeState extends State<PatHome> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              MyAppBar(),
+              ApplicationBar(),
               Posts(),
             ],
           ),

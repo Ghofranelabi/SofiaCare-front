@@ -15,7 +15,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool? _isChecked = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _txtEmail = TextEditingController();
   TextEditingController _txtPassword = TextEditingController();
@@ -102,27 +101,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Center(
-              child: CheckboxListTile(
-                title: const Text(
-                  "J'accepte les termes et les conditions",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 15, 85, 142),
-                  ),
-                ),
-                value: _isChecked,
-                onChanged: (bool? newValue) {
-                  setState(() {
-                    _isChecked = newValue;
-                  });
-                },
-                activeColor: Color(0xFF013871),
-                checkColor: Colors.white,
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-            ),
+            
             SizedBox(height: 10),
             _loading
                 ? Center(

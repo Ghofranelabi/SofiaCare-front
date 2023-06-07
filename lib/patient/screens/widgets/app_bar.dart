@@ -21,31 +21,7 @@ class AppBarTop extends StatelessWidget {
         ),
         color: ColorsPalette.primaryColor,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-            ),
-            const Spacer(),
-             Text(
-             textTop,
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
-      ),
+      
     );
   }
 }

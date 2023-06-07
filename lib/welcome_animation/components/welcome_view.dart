@@ -47,8 +47,8 @@ class WelcomeView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.6,
-        0.8,
+        0.1,
+        0.1,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -57,14 +57,14 @@ class WelcomeView extends StatelessWidget {
       child: SlideTransition(
         position: _secondHalfAnimation,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 100),
+          padding: const EdgeInsets.only(bottom: 200),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SlideTransition(
                 position: _welcomeImageAnimation,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 350, maxHeight: 350),
+                  constraints: BoxConstraints(maxWidth: 340),
                   child: Image.asset(
                     'assets/images/Asset.png',
                     fit: BoxFit.contain,

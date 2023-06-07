@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/profile/doc_profile.dart';
+import 'package:sofiacare/settings/fav_doc.dart';
+import 'package:unicons/unicons.dart';
 
 import '../../tools/colors.dart';
 
@@ -11,8 +13,8 @@ class Posts extends StatefulWidget {
 }
 
 class _PostsState extends State<Posts> {
-  List<bool> isLovedList = List.generate(2, (index) => false);
-  List<String> commentsList = List.generate(2, (index) => "");
+  List<bool> isLovedList = [];
+  List<String> commentsList = [];
   bool showCommentField = false;
 
   // Function to handle submitting a comment
@@ -31,6 +33,15 @@ class _PostsState extends State<Posts> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    // Initialize the lists based on the number of posts
+    int numberOfPosts = 2; // Replace with the actual number of posts
+    isLovedList = List.generate(numberOfPosts, (index) => false);
+    commentsList = List.generate(numberOfPosts, (index) => "");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 1000,
@@ -43,11 +54,13 @@ class _PostsState extends State<Posts> {
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 2,
+              itemCount: 2, // Replace with the actual number of posts
               itemBuilder: (BuildContext context, int index) {
                 bool isLoved = isLovedList[index];
                 String timeAgo = "6min"; // Replace with actual time logic
                 String confidentiality = "public"; // Replace with actual confidentiality logic
+                int likesCount = 10; // Replace with actual likes count
+                int commentsCount = 5; // Replace with actual comments count
 
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
@@ -69,7 +82,7 @@ class _PostsState extends State<Posts> {
                                 margin: EdgeInsets.only(left: 10, top: 10),
                                 child: CircleAvatar(
                                   radius: 30,
-                                  backgroundImage: AssetImage('assets/images/doctor4.jpg'),
+                                  backgroundImage: AssetImage('assets/images/lilia.jpg'),
                                 ),
                               ),
                               SizedBox(width: 10),
@@ -77,7 +90,7 @@ class _PostsState extends State<Posts> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Dr.Labidi",
+                                    "Dr. Lilia Jemai",
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,
@@ -119,9 +132,7 @@ class _PostsState extends State<Posts> {
                               child: Image.asset(
                                 "assets/images/conseil.jpg",
                               ),
-                              
                             ),
-                            
                           ),
                         ),
                         Padding(
@@ -150,20 +161,20 @@ class _PostsState extends State<Posts> {
                                           color: Color(0xFFD9E4EE),
                                           child: Icon(
                                             isLoved ? Icons.favorite : Icons.favorite_border,
-                                            size: 12,
+                                            size: 20,
                                             color: isLoved ? Colors.red : Colors.red,
                                           ),
                                         ),
                                         Container(
                                           alignment: Alignment.center,
-                                          width: 40,
+                                          width: 60,
                                           color: Color(0xFFD9E4EE),
                                           child: Text(
-                                            isLoved ? "1 j'aime" : "j'aime",
+                                            isLoved ? "1 J'aime" : "J'aime",
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w500,
-                                              color: isLoved ? Colors.red : Colors.red,
+                                              color: isLoved ? Colors.grey : Colors.red,
                                             ),
                                           ),
                                         ),
@@ -189,21 +200,21 @@ class _PostsState extends State<Posts> {
                                           width: 30,
                                           color: Color(0xFFD9E4EE),
                                           child: Icon(
-                                            Icons.comment,
+                                            UniconsLine.comment_edit,
                                             size: 20,
                                             color: Colors.green,
                                           ),
                                         ),
                                         Container(
                                           alignment: Alignment.center,
-                                          width: 60,
+                                          width: 100,
                                           color: Color(0xFFD9E4EE),
                                           child: Text(
-                                            "Comment",
+                                            "Commentaires ($commentsCount)",
                                             style: TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w500,
-                                              color: Colors.green,
+                                              color: Colors.grey,
                                             ),
                                           ),
                                         ),
@@ -217,7 +228,7 @@ class _PostsState extends State<Posts> {
                         ),
                         showCommentField
                             ? Container(
-                                padding: EdgeInsets.all(10),
+                                padding: EdgeInsets.all(3),
                                 margin: EdgeInsets.only(bottom: 10),
                                 color: Colors.white,
                                 child: Row(
@@ -225,7 +236,7 @@ class _PostsState extends State<Posts> {
                                     Expanded(
                                       child: TextField(
                                         decoration: InputDecoration(
-                                          hintText: "Add a comment...",
+                                          hintText: "Ecrire un commentaire...",
                                           border: InputBorder.none,
                                         ),
                                         onSubmitted: (comment) {
@@ -242,7 +253,8 @@ class _PostsState extends State<Posts> {
                                       child: Container(
                                         margin: EdgeInsets.only(left: 10),
                                         child: Icon(
-                                          Icons.send,
+                                          UniconsLine.times_circle,
+                                          size: 20,
                                           color: Colors.grey,
                                         ),
                                       ),
@@ -253,23 +265,28 @@ class _PostsState extends State<Posts> {
                             : SizedBox(),
                         commentsList[index].isNotEmpty
                             ? Container(
-                                padding: EdgeInsets.all(10),
-                                color: Colors.white,
+                                margin: EdgeInsets.only(bottom: 10),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Comments:",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
+                                    Container(
+                                      alignment: Alignment.centerLeft,
+                                      margin: EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        "Nom de patient",
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
-                                    SizedBox(height: 5),
-                                    Text(
-                                      commentsList[index],
-                                      style: TextStyle(
-                                        fontSize: 14,
+                                    Container(
+                                      alignment: Alignment.centerLeft,
+                                      margin: EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        commentsList[index],
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -287,29 +304,4 @@ class _PostsState extends State<Posts> {
       ),
     );
   }
-}
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Doctor Profile'),
-      ),
-      body: Center(
-        child: Text('Doctor Profile Page'),
-      ),
-    );
-  }
-
-
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Posts"),
-      ),
-      body: Posts(),
-    ),
-  ));
 }

@@ -30,12 +30,12 @@ class _DoctorSettingsState extends State<DoctorSettings> {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage('assets/images/doctor1.jpg'),
+                backgroundImage: AssetImage('assets/images/lilia.jpg'),
                 backgroundColor: Colors.white, // Set a border color
               ),
               SizedBox(height: 8),
               Text(
-                "Dr. John Doe",
+                "Dr.Lilia Jemai",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -68,29 +68,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
               );
             },
           ),
-          Container(
         
-            child: ListTile(
-              leading: Icon(
-                Icons.key,
-              ),
-              title: Text(
-                "Changer mot de passe",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DocChangePasswordScreen()),
-                );
-              },
-            ),
-          ),
           ListTile(
             leading: Icon(
               Icons.calendar_today,

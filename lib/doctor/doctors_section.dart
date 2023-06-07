@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/tools/colors.dart';
 
-import '../../patient/profile/appoint_screen.dart';
+import '../patient/profile/doc_profile.dart';
+
 
 class DoctorSection extends StatefulWidget {
   @override
@@ -50,7 +51,7 @@ class _DoctorSectionState extends State<DoctorSection> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DoctorProfie(), // Corrected widget name
+                                builder: (context) => DoctorProfile(), // Corrected widget name
                               ),
                             );
                           },

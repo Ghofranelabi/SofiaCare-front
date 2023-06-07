@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/home/search_screen.dart';
+import 'package:sofiacare/patient/profile/doc_profile.dart';
 
-import '../profile/doc_profile.dart';
 
 class Speciality extends StatefulWidget {
   

@@ -28,12 +28,11 @@ class _PresentationState extends State<Presentation> {
           padding: EdgeInsets.symmetric(vertical: 10),
               child: Center(
               child: Text(
-                "Dr.Labidi",
+                "Dr.Lilia Jemai",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF013871),
-                  decoration: TextDecoration.underline,
                 ),
               ),
             ),
@@ -68,7 +67,7 @@ class _PresentationState extends State<Presentation> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Medecin dentiste ",
+                    "Diplomée en médecine dentaire ",
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -136,7 +135,7 @@ class _PresentationState extends State<Presentation> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Rue 1 er Mai (à cote du Tunisie Télécom) Premier étage ",
+                    "Mateur",
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -173,7 +172,7 @@ class _PresentationState extends State<Presentation> {
     // ignore: duplicate_ignore
     child: GestureDetector(
       onTap: () async {
-        final phoneNumber = '+21625489325';
+        final phoneNumber = '+21627438527';
         final url = 'tel:$phoneNumber';
         if (await canLaunch(url)) {
           await launch(url);
@@ -185,7 +184,7 @@ class _PresentationState extends State<Presentation> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "+21625489325",
+            "+21627438527",
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,
