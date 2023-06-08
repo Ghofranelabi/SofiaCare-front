@@ -30,7 +30,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage('assets/images/patien1.jpg'),
+                backgroundImage: AssetImage('assets/images/labidi.jpg'),
                 backgroundColor: Colors.white, // Set a border color
               ),
               SizedBox(height: 8),

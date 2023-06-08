@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home:PatHome(),
+      home:DoctorHome(),
     );
   }
 }

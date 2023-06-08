@@ -8,6 +8,7 @@ class PquestionAnswer extends StatefulWidget {
 
 class _PQuestionAnswerState extends State<PquestionAnswer> {
   List<bool> isExpandedList = [];
+  TextEditingController _questionController = TextEditingController();
 
   @override
   void initState() {
@@ -17,10 +18,61 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
   }
 
   @override
+  void dispose() {
+    _questionController.dispose();
+    super.dispose();
+  }
+
+  void _showQuestionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Ajouter votre question",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color:  Color(0xFF013871),),),
+          content: TextField(
+            controller: _questionController,
+            decoration: InputDecoration(hintText: "Ecrivez ..."),
+          ),
+          actions: [
+            TextButton(
+              child: Text("Annuler",
+              style: TextStyle(color: Color(0xFF013871) ,),),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text(
+                "Envoyer", 
+                style: TextStyle(color:  Color(0xFF013871),),
+              ),
+              onPressed: () {
+                String question = _questionController.text;
+                if (question.isNotEmpty) {
+                  setState(() {
+                    // Add the new question to the top of the list
+                    isExpandedList.insert(0, false);
+                  });
+                  _questionController.clear();
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: 10, // Adjust the number of items based on your data
+        itemCount: isExpandedList.length,
         itemBuilder: (context, index) {
           return Container(
             margin: EdgeInsets.all(10),
@@ -54,21 +106,12 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 2,
                   child: Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Des odeurs dans la bouche",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF013871),
-                          ),
-                        ),
-                      ],
+                      children: [],
                     ),
                   ),
                 ),
@@ -123,6 +166,14 @@ class _PQuestionAnswerState extends State<PquestionAnswer> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+  child: Icon(Icons.add),
+  backgroundColor: Color(0xFF013871), // Set the background color here
+  onPressed: () {
+    _showQuestionDialog(context);
+  },
+),
+
     );
   }
 }

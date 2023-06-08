@@ -12,10 +12,17 @@ class NotificationAppoint extends StatefulWidget {
 
 class _NotificationAppointState extends State<NotificationAppoint> {
   List<String> imgs = [
-    "doctor1.jpg",
-    "doctor2.jpg",
-    "doctor3.jpg",
-    "doctor4.jpg",
+    "lilia.jpg",
+    "siwar.jpg",
+    "bassemmk.jpg",
+    "ichrak.jpg",
+  ];
+
+  List<String> names = [
+    "Dr. Lilia Jemai",
+    "Dr. Siwar Hajri",
+    "Dr. Bassem Mkadmi",
+    "Dr. Ichrak ben Rhouma",
   ];
 
   int _selectedIndex = 2;
@@ -40,9 +47,11 @@ class _NotificationAppointState extends State<NotificationAppoint> {
             padding: const EdgeInsets.all(8.0),
             child: AppointmentCard(
               img: imgs[index],
+              name: names[index],
               onDelete: () {
                 setState(() {
                   imgs.removeAt(index);
+                  names.removeAt(index);
                 });
               },
             ),
@@ -53,7 +62,6 @@ class _NotificationAppointState extends State<NotificationAppoint> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: GNav(
-
             gap: 8,
             activeColor: Color(0xFF013871),
             iconSize: 25,
@@ -108,10 +116,12 @@ class _NotificationAppointState extends State<NotificationAppoint> {
 
 class AppointmentCard extends StatefulWidget {
   final String img;
+  final String name;
   final VoidCallback onDelete;
 
   const AppointmentCard({
     required this.img,
+    required this.name,
     required this.onDelete,
   }) : super();
 
@@ -150,7 +160,7 @@ class _AppointmentCardState extends State<AppointmentCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Doctor Name',
+                        widget.name,
                         style: TextStyle(
                           color: Colors.white,
                         ),

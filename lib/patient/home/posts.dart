@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/patient/profile/doc_profile.dart';
-import 'package:sofiacare/settings/fav_doc.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../tools/colors.dart';
-
 class Posts extends StatefulWidget {
-  const Posts();
-
   @override
   _PostsState createState() => _PostsState();
 }
 
 class _PostsState extends State<Posts> {
-  List<bool> isLovedList = [];
+  List<String> imgs = [
+    "lilia.jpg",
+    "siwar.jpg",
+    "bassemmk.jpg",
+    "ichrak.jpg",
+  ];
+
+  List<String> postImages = [
+    "post1.jpeg",
+    "post2.png",
+    "post3.jpeg",
+    "post4.jpg",
+  ];
+
+  List<String> names = [
+    "Dr. Lilia Jemai",
+    "Dr. Siwar Hajri",
+    "Dr. Bassem Mkadmi",
+    "Dr. Ichrak ben Rhouma",
+  ];
+
+  List<int> likesList = [10, 20, 30, 40];
   List<String> commentsList = [];
+  List<bool> isLovedList = [false, false, false, false]; // Track if post is loved
+
   bool showCommentField = false;
 
   // Function to handle submitting a comment
@@ -32,19 +50,30 @@ class _PostsState extends State<Posts> {
     });
   }
 
+  // Function to toggle love status
+  void toggleLove(int index) {
+    setState(() {
+      isLovedList[index] = !isLovedList[index];
+      if (isLovedList[index]) {
+        likesList[index] += 1;
+      } else {
+        likesList[index] -= 1;
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     // Initialize the lists based on the number of posts
-    int numberOfPosts = 2; // Replace with the actual number of posts
-    isLovedList = List.generate(numberOfPosts, (index) => false);
+    int numberOfPosts = names.length;
     commentsList = List.generate(numberOfPosts, (index) => "");
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1000,
+      height: 1500,
       margin: EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width,
       color: Color(0xFFD9E4EE),
@@ -54,246 +83,177 @@ class _PostsState extends State<Posts> {
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: 2, // Replace with the actual number of posts
+              itemCount: names.length,
               itemBuilder: (BuildContext context, int index) {
-                bool isLoved = isLovedList[index];
-                String timeAgo = "6min"; // Replace with actual time logic
-                String confidentiality = "public"; // Replace with actual confidentiality logic
-                int likesCount = 10; // Replace with actual likes count
-                int commentsCount = 5; // Replace with actual comments count
+                int likesCount = likesList[index];
+                int commentsCount = 10; // Replace with actual comments count
 
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => DoctorProfile()),
-                            );
-                          },
-                          child: Row(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10), // Rounded corners for all sides
+                    child: Hero(
+                      tag: postImages[index],
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PostImageScreen(imageUrl: postImages[index]),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 10),
+                          color: Colors.white,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 10),
-                                child: CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage: AssetImage('assets/images/lilia.jpg'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DoctorProfile(),
+                                    ),
+                                  );
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(left: 10, top: 10),
+                                      child: CircleAvatar(
+                                        radius: 30,
+                                        backgroundImage:
+                                            AssetImage("assets/images/${imgs[index]}"),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          names[index],
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(width: 10),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Dr. Lilia Jemai",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                              SizedBox(height: 10),
+                              // Placeholder text instead of image
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/${postImages[index]}"),
+                                    fit: BoxFit.cover,
                                   ),
-                                  SizedBox(height: 5),
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
                                   Row(
                                     children: [
-                                      Text(
-                                        timeAgo,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
+                                      IconButton(
+                                        icon: Icon(
+                                          UniconsLine.heart,
+                                          color: isLovedList[index] ? Colors.red : Colors.grey,
                                         ),
+                                        onPressed: () {
+                                          toggleLove(index);
+                                        },
                                       ),
                                       SizedBox(width: 5),
-                                      Icon(
-                                        confidentiality == "public" ? Icons.public : Icons.person,
-                                        size: 16,
-                                        color: Colors.grey,
+                                      Text(
+                                        likesCount.toString(),
+                                        style: TextStyle(fontSize: 12),
+                                      ),
+                                      SizedBox(width: 10),
+                                      IconButton(
+                                        icon: Icon(
+                                          UniconsLine.comment_edit,
+                                          color: Colors.green,
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            showCommentField = !showCommentField;
+                                          });
+                                        },
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text(
+                                        commentsCount.toString(),
+                                        style: TextStyle(fontSize: 12),
                                       ),
                                     ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20, bottom: 20),
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              minHeight: 150,
-                              minWidth: 150,
-                              maxHeight: 350.0,
-                              maxWidth: MediaQuery.of(context).size.width,
-                            ),
-                            child: Container(
-                              child: Image.asset(
-                                "assets/images/conseil.jpg",
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0.1, bottom: 0.1),
-                          child: Transform.scale(
-                            scale: 1.2,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      isLovedList[index] = !isLoved;
-                                    });
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.only(top: 1),
-                                    alignment: Alignment.center,
-                                    color: wColor,
-                                    height: 40,
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 20,
-                                          color: Color(0xFFD9E4EE),
-                                          child: Icon(
-                                            isLoved ? Icons.favorite : Icons.favorite_border,
-                                            size: 20,
-                                            color: isLoved ? Colors.red : Colors.red,
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 60,
-                                          color: Color(0xFFD9E4EE),
-                                          child: Text(
-                                            isLoved ? "1 J'aime" : "J'aime",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w500,
-                                              color: isLoved ? Colors.grey : Colors.red,
+                              SizedBox(height: 10),
+                              showCommentField
+                                  ? Container(
+                                      margin: EdgeInsets.symmetric(horizontal: 10),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: TextFormField(
+                                              decoration: InputDecoration(
+                                                hintText: "Ecrire un commentaire...",
+                                                border: InputBorder.none,
+                                              ),
+                                              onFieldSubmitted: (value) {
+                                                submitComment(index, value);
+                                              },
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      showCommentField = !showCommentField;
-                                    });
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    alignment: Alignment.center,
-                                    color: wColor,
-                                    height: 30,
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 30,
-                                          color: Color(0xFFD9E4EE),
-                                          child: Icon(
-                                            UniconsLine.comment_edit,
-                                            size: 20,
-                                            color: Colors.green,
+                                          IconButton(
+                                            icon: Icon(Icons.send),
+                                            onPressed: () {
+                                              submitComment(index, commentsList[index]);
+                                            },
                                           ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 100,
-                                          color: Color(0xFFD9E4EE),
-                                          child: Text(
-                                            "Commentaires ($commentsCount)",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w500,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        showCommentField
-                            ? Container(
-                                padding: EdgeInsets.all(3),
-                                margin: EdgeInsets.only(bottom: 10),
-                                color: Colors.white,
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                          hintText: "Ecrire un commentaire...",
-                                          border: InputBorder.none,
-                                        ),
-                                        onSubmitted: (comment) {
-                                          addComment(index, comment);
-                                        },
+                                        ],
                                       ),
-                                    ),
-                                    GestureDetector(
+                                    )
+                                  : GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          showCommentField = false;
+                                          showCommentField = true;
                                         });
                                       },
-                                      child: Container(
-                                        margin: EdgeInsets.only(left: 10),
-                                        child: Icon(
-                                          UniconsLine.times_circle,
-                                          size: 20,
-                                          color: Colors.grey,
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 10),
+                                        child: Text(
+                                          "Voir tous les commentaires",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Colors.grey,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              )
-                            : SizedBox(),
-                        commentsList[index].isNotEmpty
-                            ? Container(
-                                margin: EdgeInsets.only(bottom: 10),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      margin: EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        "Nom de patient",
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.centerLeft,
+                              SizedBox(height: 10),
+                              showCommentField
+                                  ? Container()
+                                  : Container(
                                       margin: EdgeInsets.only(left: 10),
                                       child: Text(
                                         commentsList[index],
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                        ),
+                                        style: TextStyle(fontSize: 12),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              )
-                            : SizedBox(),
-                      ],
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 );
@@ -304,4 +264,32 @@ class _PostsState extends State<Posts> {
       ),
     );
   }
+}
+
+class PostImageScreen extends StatelessWidget {
+  final String imageUrl;
+
+  const PostImageScreen({required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Hero(
+          tag: imageUrl,
+          child: Image.asset(
+            "assets/images/$imageUrl",
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: Posts(),
+  ));
 }

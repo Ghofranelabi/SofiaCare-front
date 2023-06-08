@@ -101,13 +101,7 @@ class _NewPostState extends State<NewPost> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        "à l'instant",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                        ),
-                      ),
+                      
                     ],
                   ),
                 ],

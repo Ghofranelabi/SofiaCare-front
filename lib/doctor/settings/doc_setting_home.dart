@@ -3,8 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
 import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/doctor/home/doc_home.dart';
-import 'package:sofiacare/doctor/settings/changepassword.dart';
 import 'package:sofiacare/doctor/settings/doc_disponibilities.dart';
+import 'package:sofiacare/doctor/settings/doc_edit.dart';
 import 'package:sofiacare/settings/edit_profile.dart';
 
 import '../../welcome_animation/sign/sign.dart';
@@ -64,7 +64,7 @@ class _DoctorSettingsState extends State<DoctorSettings> {
               // Navigate to the edit profile screen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => EditProfile()),
+                MaterialPageRoute(builder: (context) => DocEditProfile()),
               );
             },
           ),

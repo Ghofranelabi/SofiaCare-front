@@ -5,14 +5,14 @@ import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
 import 'package:sofiacare/settings/setting.dart';
 import 'package:sofiacare/tools/colors.dart';
 
-class EditProfile extends StatefulWidget {
-  const EditProfile({Key? key}) : super(key: key);
+class DocEditProfile extends StatefulWidget {
+  const DocEditProfile({Key? key}) : super(key: key);
 
   @override
-  State<EditProfile> createState() => _EditProfileState();
+  State<DocEditProfile> createState() => _DocEditProfileState();
 }
 
-class _EditProfileState extends State<EditProfile> {
+class _DocEditProfileState extends State<DocEditProfile> {
   bool isObscurePassword = true;
   String? capturedImagePath;
 
@@ -49,8 +49,8 @@ class _EditProfileState extends State<EditProfile> {
                 child: Stack(
                   children: [
                     Container(
-                      width: 300,
-                      height: 300,
+                      width: 200,
+                      height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(width: 4, color: wColor),
                         boxShadow: [
@@ -65,7 +65,7 @@ class _EditProfileState extends State<EditProfile> {
                           fit: BoxFit.cover,
                           image: capturedImagePath != null
                               ? FileImage(File(capturedImagePath!)) as ImageProvider<Object>
-                              : AssetImage("assets/images/labidi.jpg"),
+                              : AssetImage("assets/images/lilia.jpg"),
                         ),
                       ),
                     ),
@@ -99,7 +99,7 @@ class _EditProfileState extends State<EditProfile> {
               const SizedBox(
                 height: 30,
               ),
-              buildTextField("Nom Complet", "Ghofrane", false),
+              buildTextField("Nom Complet", "Lilia", false),
               buildTextField("Adresse", "Bizerte", false),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
