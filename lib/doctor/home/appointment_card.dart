@@ -29,7 +29,7 @@ class _AppointmentCardState extends State<AppointCard> {
                 children: [
                   CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage('assets/images/patient.jpg'),
+                      backgroundImage: AssetImage('assets/images/labidi.jpg'),
                     ),
                   const SizedBox(width: 10),
                   Column(
@@ -37,7 +37,7 @@ class _AppointmentCardState extends State<AppointCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Mohamed Jemai',
+                        'Ghofrane Labidi',
                         style: TextStyle(
                           color: wColor,
                         ),

@@ -81,7 +81,7 @@ class _DoctorDisponibilitiesState extends State<DoctorDisponibilities> {
             SizedBox(height: 32.0),
 Container(
   child: Text(
-    'Sélectionnez les heures :',
+    'Sélectionnez les heures non disponibles :',
     style: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
@@ -108,13 +108,17 @@ Container(
                     ),
               ],
             ),
-            SizedBox(height: 32.0),
-            ElevatedButton(
-              onPressed: () {
-                // Valider les disponibilités
-              },
-              child: Text('Valider les disponibilités'),
-            ),
+           SizedBox(height: 32.0),
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    primary: Color(0xFF013871),
+  ),
+  onPressed: () {
+    // Valider les disponibilités
+  },
+  child: Text('Valider les disponibilités'),
+),
+
           ],
         ),
       ),

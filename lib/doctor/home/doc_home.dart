@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sofiacare/doctor/appointments_list.dart';
-import 'package:sofiacare/doctor/dossiers/doss_home.dart'; 
+import 'package:sofiacare/doctor/dossiers/doss_home.dart';
 import 'package:sofiacare/doctor/home/Doctorques.dart';
 import 'package:sofiacare/doctor/home/appointment_card.dart';
 import 'package:sofiacare/doctor/settings/doc_setting_home.dart';
@@ -17,7 +17,7 @@ class DoctorHome extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1.2, // Adjust the desired height here
+          height: MediaQuery.of(context).size.height * 1.2,
           child: SafeArea(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -26,7 +26,7 @@ class DoctorHome extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Dr.Labidi",
+                      "Dr.Lilia Jemai",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -43,14 +43,14 @@ class DoctorHome extends StatelessWidget {
                           );
                         },
                         child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/doctor1.jpg"),
+                          backgroundImage: AssetImage("assets/images/lilia.jpg"),
                         ),
                       ),
                     ),
                   ],
                 ),
                 Config.spaceSmall,
-                NewPost(), // Add the NewPost widget here
+                NewPost(),
                 Config.spaceSmall,
                 const Text(
                   "Rendez-vous d'aujourd'hui",
@@ -81,7 +81,7 @@ class DoctorHome extends StatelessWidget {
                 Align(
                   alignment: Alignment.topCenter,
                   child: FractionalTranslation(
-                    translation: Offset(0, -0.9), // Adjust the vertical position here
+                    translation: Offset(0, -0.2), // Adjust the vertical position here
                     child: Text(
                       "Mes Questions",
                       style: TextStyle(
@@ -93,10 +93,13 @@ class DoctorHome extends StatelessWidget {
                 ),
                 Config.spaceSmall,
                 Expanded(
-                  child: ListView(
-                    children: <Widget>[
-                      QuestionAnswerScreen(),
-                    ],
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 8, // Adjust the height here
+                    child: ListView(
+                      children: <Widget>[
+                        QuestionAnswerScreen(),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -108,7 +111,6 @@ class DoctorHome extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: GNav(
-
             gap: 8,
             activeColor: Color(0xFF013871),
             iconSize: 25,
@@ -119,19 +121,15 @@ class DoctorHome extends StatelessWidget {
             tabs: [
               GButton(
                 icon: Icons.home,
-                
               ),
               GButton(
                 icon: Icons.file_copy,
-                
               ),
               GButton(
                 icon: Icons.calendar_month,
-                
               ),
               GButton(
                 icon: Icons.settings,
-                
               ),
             ],
             selectedIndex: 0,

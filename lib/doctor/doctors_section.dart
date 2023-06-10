@@ -3,7 +3,6 @@ import 'package:sofiacare/tools/colors.dart';
 
 import '../patient/profile/doc_profile.dart';
 
-
 class DoctorSection extends StatefulWidget {
   @override
   _DoctorSectionState createState() => _DoctorSectionState();
@@ -12,10 +11,24 @@ class DoctorSection extends StatefulWidget {
 class _DoctorSectionState extends State<DoctorSection> {
   List<bool> isFavoriteList = List.generate(4, (_) => false);
 
+  List<String> doctorNames = [
+    "Dr. Lilia Jemai",
+    "Dr. Siwar Hajri",
+    "Dr. Bassem Mkadmi",
+    "Dr. Ichrak ben Rhouma",
+  ];
+
+  List<String> doctorImages = [
+    "assets/images/lilia.jpg",
+    "assets/images/siwar.jpg",
+    "assets/images/bassemmk.jpg",
+    "assets/images/ichrak.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 340,
+      height: 350,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -51,7 +64,7 @@ class _DoctorSectionState extends State<DoctorSection> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DoctorProfile(), // Corrected widget name
+                                builder: (context) => DoctorProfile(),
                               ),
                             );
                           },
@@ -61,7 +74,7 @@ class _DoctorSectionState extends State<DoctorSection> {
                               topRight: Radius.circular(15),
                             ),
                             child: Image.asset(
-                              "assets/images/doctor${index + 1}.jpg",
+                              doctorImages[index],
                               height: 200,
                               width: 200,
                               fit: BoxFit.cover,
@@ -96,8 +109,7 @@ class _DoctorSectionState extends State<DoctorSection> {
                                   isFavoriteList[index]
                                       ? Icons.favorite
                                       : Icons.favorite_border,
-                                  color:
-                                      isFavoriteList[index] ? Colors.amber : pColor,
+                                  color: isFavoriteList[index] ? Colors.amber : pColor,
                                   size: 28,
                                 ),
                               ),
@@ -113,9 +125,9 @@ class _DoctorSectionState extends State<DoctorSection> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Dr labidi",
+                            doctorNames[index],
                             style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 18,
                               fontWeight: FontWeight.w500,
                               color: pColor,
                             ),

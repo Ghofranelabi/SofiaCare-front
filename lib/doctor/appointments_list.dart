@@ -8,10 +8,10 @@ import 'home/doc_home.dart';
 
 class AppointmentList extends StatelessWidget {
   final List<Patient> patients = [
-    Patient(name: "Ghofrane Labidi", image: "patient1.jpeg"),
-    Patient(name: "Lilia Jemai", image: "patient2.jpg"),
-    Patient(name: "Mounira ben Hadid", image: "patient3.jpeg"),
-    Patient(name: "Mohamed Labidi", image: "patient.jpg"),
+    Patient(name: "Ghofrane Labidi", image: "labidi.jpg"),
+    Patient(name: "Aziz jawedi", image: "aziz.jpg"),
+    Patient(name: "Mounira ben Hadid", image: "mounira.jpg"),
+    Patient(name: "Hamadi Labidi", image: "hamadi.jpg"),
     // Add more patients as needed
   ];
 
