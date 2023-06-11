@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sofiacare/pages/doctor/settings/page_doc_setting_home.dart';
-import 'package:sofiacare/pages/patient/settings/page_setting.dart';
 import 'package:sofiacare/pages/components/tools/colors.dart';
 
 class EditProfile extends StatefulWidget {

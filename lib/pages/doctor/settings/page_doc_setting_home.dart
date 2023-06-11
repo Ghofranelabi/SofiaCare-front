@@ -5,7 +5,6 @@ import 'package:sofiacare/pages/doctor/dossiers/page_doss_home.dart';
 import 'package:sofiacare/pages/doctor/home/page_doc_home.dart';
 import 'package:sofiacare/pages/doctor/settings/page_doc_disponibilities.dart';
 import 'package:sofiacare/pages/doctor/settings/page_doc_edit.dart';
-import 'package:sofiacare/pages/patient/settings/page_edit_profile.dart';
 
 import '../../sign/sign.dart';
 
