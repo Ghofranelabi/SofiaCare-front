@@ -17,7 +17,7 @@ Future<ApiResponse> login(String email, String password) async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -49,7 +49,7 @@ Future<ApiResponse> register(
   if (response.statusCode == 201) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -75,7 +75,7 @@ Future<ApiResponse> getUserDetail() async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -120,7 +120,7 @@ Future<bool> logout() async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -143,7 +143,7 @@ Future<ApiResponse> SendEmail(String email) async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -169,7 +169,7 @@ Future<ApiResponse> ConfirmCode(String code) async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
@@ -196,7 +196,7 @@ Future<ApiResponse> ModifierMotDePasse(String password) async {
   if (response.statusCode == 200) {
     print("success-> " + response.statusCode.toString());
     print(response.body);
-    apiResponse.data = User.formJson(jsonDecode(response.body));
+    apiResponse.data = User.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 422) {
     print("failure -> " + response.statusCode.toString());
     final errors = jsonDecode(response.body)['errors'];
