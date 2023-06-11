@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:sofiacare/constant.dart'
     show loginURL, registerURL, sendEmailUrl, serverError, somethingWentWrong, unauthorized, updateUrl, userURL;
-import 'package:sofiacare/model/api_response.dart';
-import 'package:sofiacare/model/user.dart';
+import 'package:sofiacare/models/api_response.dart';
+import 'package:sofiacare/models/user.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
