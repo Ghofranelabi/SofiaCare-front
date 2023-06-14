@@ -1,11 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sofiacare/pages/doctor/dossiers/page_doss_home.dart';
 
+import '../../../Widgets/modal_dialog.dart';
+import '../../components/utils/image_cropper_page.dart';
+import '../../components/utils/image_picker_class.dart';
+import '../../recognization_page.dart';
+
 class DossierPerso extends StatefulWidget {
   @override
   _DossierPersoState createState() => _DossierPersoState();
-}
+} 
 
 class _DossierPersoState extends State<DossierPerso> {
   TextEditingController patientNameController = TextEditingController();
@@ -250,10 +256,48 @@ class _DossierPersoState extends State<DossierPerso> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            buildCameraBox(),
-            buildCameraBox(),
-            buildCameraBox(),
-            buildCameraBox(),
+           FloatingActionButton.extended(
+        onPressed: () {
+          imagePickerModal(context, onCameraTap: () {
+            pickImage(source: ImageSource.camera).then((value) {
+              if (value != '') {
+                imageCropperView(value, context).then((value) {
+                  if (value != '') {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (_) => RecognizePage(
+                          path: value,
+                        ),
+                      ),
+                    );
+                  }
+                });
+              }
+            });
+          }, onGalleryTap: () {
+            pickImage(source: ImageSource.gallery).then((value) {
+              if (value != '') {
+                imageCropperView(value, context).then((value) {
+                  if (value != '') {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (_) => RecognizePage(
+                          path: value,
+                        ),
+                      ),
+                    );
+                  }
+                });
+              }
+            });
+          });
+        },
+        tooltip: 'Increment',
+        label: const Text("Scan photo"),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    
           ],
         ),
       ],
