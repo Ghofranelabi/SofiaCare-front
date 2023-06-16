@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sofiacare/pages/doctor/dossiers/page_dossier_perso.dart';
+import 'package:sofiacare/pages/patient/search/page_search_screen.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home:DossierPerso(),
+      home:SearchScreen(),
     );
   }
 }
